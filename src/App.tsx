@@ -3,7 +3,6 @@ import Banner from './components/Banner'; // Ajusta la ruta según la ubicación
 import SearchBanner from './components/SearchBanner';
 import Sidebar from './components/Sidebar';
 
-
 function App(){
    return(
       <div className="App">
