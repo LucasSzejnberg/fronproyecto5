@@ -1,0 +1,72 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #FFF; /* Fondo blanco para el modal */
+    width: 300px; /* Ancho del modal */
+    height: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+  }
+  
+  .modal-header {
+    text-align: center;
+  }
+  
+  .modal-photo {
+    width: 100px; /* Tamaño de la foto */
+    height: 100px;
+    border-radius: 50%; /* Para hacerla circular */
+  }
+  
+  .modal-body {
+    margin-top: 20px;
+  }
+  
+  .modal-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modal-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .modal-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal-button-image {
+    width: 50px; /* Tamaño de los botones */
+    height: 50px;
+  }
+  
+  /* Estilos específicos para cada botón */
+  .button1 {
+    /* Agrega tus estilos para el botón 1 aquí */
+  }
+  
+  .button2 {
+    /* Agrega tus estilos para el botón 2 aquí */
+  }
+  
+  .button3 {
+    /* Agrega tus estilos para el botón 3 aquí */
+  }
+  

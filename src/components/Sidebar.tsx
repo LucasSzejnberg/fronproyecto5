@@ -1,5 +1,7 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import './Sidebar.css';
+import Modal from './Modal';
 
 interface SidebarProps {
   topButton1ImgSrc: string;
@@ -14,6 +16,16 @@ const Sidebar: React.FC<SidebarProps> = ({
   sidebarImgSrc, 
   bottomButtonImgSrc 
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="sidebar">
       <button className="sidebar-btn">
@@ -23,9 +35,11 @@ const Sidebar: React.FC<SidebarProps> = ({
         <img src={topButton2ImgSrc} alt="Button 2" className="btn-img" />
       </button>
       <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
-      <button className="sidebar-btn">
+      
+      <button className="sidebar-btn" onClick={openModal}>
         <img src={bottomButtonImgSrc} alt="Bottom Button" className="btn-img" />
       </button>
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }
