@@ -1,0 +1,37 @@
+.sidebar {
+    width: 200px;
+    height: 100vh; /* Altura completa de la ventana */
+    background-color: #D9D9D9; /* Color de fondo gris */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-top: 130px;
+  }
+  
+.sidebar-btn {
+    width: 100%;
+    padding: 0; /* Sin padding para que la imagen ocupe todo el botón */
+    border: none; /* Sin borde */
+    background-color: transparent; /* Fondo transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    outline: none; /* Sin contorno */
+  }
+  
+  .sidebar-btn img.btn-img {
+    width: 80%; /* La imagen ocupa todo el botón */
+    height: auto;
+  }
+  
+  .sidebar-img {
+    width: 50%;
+    height: auto;
+    margin-bottom: 10px;
+  }
