@@ -32,7 +32,6 @@ const handleButton3Click = async (url: string, data: any) => {
     console.error('Error en la solicitud POST:', error);
   }
 };
-
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 

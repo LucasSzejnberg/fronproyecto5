@@ -1,33 +1,21 @@
-import http from 'http'
+// server.js
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors'); // Importa cors
+const app = express();
+const PORT = 3000;
 
-// Crear el servidor HTTP
-const server = http.createServer((req, res) => {
-  // Verificar si la solicitud es POST
-  if (req.method === 'POST') {
-    let data = '';
+// Configura CORS para permitir solicitudes desde cualquier origen
+app.use(cors());
 
-    // Escuchar eventos de datos en la solicitud
-    req.on('data', (chunk) => {
-      // Concatenar los datos recibidos
-      data += chunk;
-    });
+// Configura bodyParser para manejar datos JSON en el cuerpo de las solicitudes
+app.use(bodyParser.json());
 
-    // Escuchar el evento 'end', que se dispara cuando se completa la recepción de datos
-    req.on('end', () => {
-      // Procesar los datos recibidos (en este ejemplo, simplemente los enviamos de vuelta como respuesta)
-      res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.end(data);
-      console.log("hola");
-    });
-  } else {
-    // Si la solicitud no es POST, responder con un código de estado 405 (Método no permitido)
-    res.writeHead(405, {'Content-Type': 'text/plain'});
-    res.end('Solo se permiten solicitudes POST');
-  }
+app.post('/', (req, res) => {
+  console.log('Datos recibidos:', req.body);
+  res.json({ message: 'Datos recibidos con éxito' });
 });
 
-// Escuchar en el puerto 3000
-const PORT = 3000;
-server.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
