@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Modal.css';
 
 interface ModalProps {
@@ -8,31 +8,60 @@ interface ModalProps {
 
 const handleButton3Click = async (url: string, data: any) => {
   try {
-    console.log("Botón 3 fue clickeado"); // Verificar si se ejecuta la función
-    // Realiza la solicitud POST utilizando la función fetch
+    console.log("Botón 3 fue clickeado");
     const response = await fetch(url, {
-      method: 'POST', // Método de la solicitud
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/json' // Tipo de contenido que se está enviando (en este caso, JSON)
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data) // Convierte los datos a formato JSON antes de enviarlos
+      body: JSON.stringify(data)
     });
 
-    // Verifica si la solicitud fue exitosa (código de estado 2xx)
     if (response.ok) {
-      // Recibe la respuesta en formato JSON
       const responseData = await response.json();
       console.log('Respuesta del servidor:', responseData);
     } else {
-      // Si la solicitud no fue exitosa, lanza un error
       throw new Error('Error en la solicitud POST');
     }
   } catch (error) {
-    // Captura cualquier error que ocurra durante la solicitud
     console.error('Error en la solicitud POST:', error);
   }
 };
+
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [inputValue, setInputValue] = useState<string>('');
+
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+      console.log('Archivo seleccionado:', file);
+    }
+  };
+
+  const handleButton11Click = () => {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.onchange = handleFileSelect;
+    fileInput.click();
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    const data = {
+      name: inputValue,
+      fileName: selectedFile?.name,
+      fileType: selectedFile?.type,
+      fileSize: selectedFile?.size
+    };
+
+    handleButton3Click("http://localhost:3000/", data);
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -43,16 +72,22 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <img src="/ImgNuevoEstudio.png" alt="Photo" className="modal-photo" />
           </div>
           <div className="modal-body">
-            <input type="text" placeholder="Nombre..." className="modal-input" />
+            <input
+              type="text"
+              placeholder="Nombre..."
+              className="modal-input"
+              value={inputValue}
+              onChange={handleInputChange}
+            />
           </div>
           <div className="modal-footer1">
-            <button className="modal-button-button11">
+            <button className="modal-button-button11" onClick={handleButton11Click}>
               <img src="/BotonArchivo.png" alt="Button 1" className="modal-button-image1" />
             </button>
-            <button className="modal-button-button22">
+            <button className="modal-button-button22" onClick={onClose}>
               <img src="/BotonCancelar.png" alt="Button 2" className="modal-button-image" />
             </button>
-            <button className="modal-button-button23"  onClick={() => handleButton3Click("http://localhost:3000/", {"hsgdh":1})}>
+            <button className="modal-button-button23" onClick={handleSubmit}>
               <img src="/BotonCrear.png" alt="Button 3" className="modal-button-image" />
             </button>
           </div>

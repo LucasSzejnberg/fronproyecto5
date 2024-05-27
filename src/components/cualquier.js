@@ -12,7 +12,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
-  console.log('Datos recibidos:', req.body);
+  const { name, fileName } = req.body;
+  console.log('Nombre ingresado:', name);
+  console.log('Nombre del archivo:', fileName);
   res.json({ message: 'Datos recibidos con éxito' });
 });
 

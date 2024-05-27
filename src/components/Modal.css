@@ -77,6 +77,11 @@
   background-color: #32cd3200; /* Color de fondo verde al hacer hover */
 }
 
+.modal-photo{
+  height: 100%;
+  width: 70%;
+}
+
 .modal-button-image {
   max-width: 90px; /* Ajusta el tamaño de la imagen del botón */
   height: auto;
