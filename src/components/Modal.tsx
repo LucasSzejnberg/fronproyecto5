@@ -36,24 +36,26 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <img src="/ImgNuevoEstudio.png" alt="Photo" className="modal-photo" />
-        </div>
-        <div className="modal-body">
-          <input type="text" placeholder="Nombre..." className="modal-input" />
-        </div>
-        <div className="modal-footer">
-          <button className="modal-button button1">
-            <img src="/BotonArchivo.png" alt="Button 1" className="modal-button-image" />
-          </button>
-          <button className="modal-button button2">
-            <img src="/BotonCancelar.png" alt="Button 2" className="modal-button-image" />
-          </button>
-          <button className="modal-button button3"  onClick={() => handleButton3Click("http://localhost:3000/", {"hsgdh":1})}>
-            <img src="/BotonCrear.png" alt="Button 3" className="modal-button-image" />
-          </button>
+    <div className="container">
+      <div className="modal-overlay" onClick={onClose}>
+        <div className="modal-contenido" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-header">
+            <img src="/ImgNuevoEstudio.png" alt="Photo" className="modal-photo" />
+          </div>
+          <div className="modal-body">
+            <input type="text" placeholder="Nombre..." className="modal-input" />
+          </div>
+          <div className="modal-footer1">
+            <button className="modal-button-button11">
+              <img src="/BotonArchivo.png" alt="Button 1" className="modal-button-image1" />
+            </button>
+            <button className="modal-button-button22">
+              <img src="/BotonCancelar.png" alt="Button 2" className="modal-button-image" />
+            </button>
+            <button className="modal-button-button23"  onClick={() => handleButton3Click("http://localhost:3000/", {"hsgdh":1})}>
+              <img src="/BotonCrear.png" alt="Button 3" className="modal-button-image" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

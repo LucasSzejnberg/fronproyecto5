@@ -10,19 +10,83 @@
   align-items: center;
 }
 
-.modal-content {
+.container{
+  background-color: #FFF; /* Fondo blanco para el modal */
+}
+
+.modal-contenido {
   background-color: #FFF; /* Fondo blanco para el modal */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
   margin-left: 400px;
   margin-right: 400px;
-  height: 250px;
+  height: 190px;
+  width: 340px;
 }
+
 
 .modal-input{
-  margin-top: 25px;
+  margin-top: 20px;
+  height: 50px;
   width: 300px;
   background-color: #D9D9D9;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.modal-button-button11 {
+  background-color: #add8e600; /* Color de fondo celeste */
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 5px;
+}
+
+.modal-button-button11:hover {
+  background-color: #87cfeb00; /* Color de fondo celeste oscuro al hacer hover */
+}
+
+.modal-button-button22 {
+  background-color: #ff634700; /* Color de fondo rojo */
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.modal-button-button22:hover {
+  background-color: #ff440000; /* Color de fondo rojo oscuro al hacer hover */
+}
+
+.modal-button-button23 {
+  background-color: #90ee9000; /* Color de fondo verde claro */
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-button-button23:hover {
+  background-color: #32cd3200; /* Color de fondo verde al hacer hover */
+}
+
+.modal-button-image {
+  max-width: 90px; /* Ajusta el tamaño de la imagen del botón */
+  height: auto;
+}
+
+.modal-button-image1 {
+  max-width: 50px; /* Ajusta el tamaño de la imagen del botón */
+  height: auto;
+}
+.modal-footer1{
+  height: 120px;
+  width: 350px;
+}
