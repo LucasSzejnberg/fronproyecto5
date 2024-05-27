@@ -2,6 +2,8 @@
 import Banner from './components/Banner'; // Ajusta la ruta según la ubicación de tu archivo
 import SearchBanner from './components/SearchBanner';
 import Sidebar from './components/Sidebar';
+import Grilla from './components/Grilla';
+
 
 function App(){
    return(
@@ -14,8 +16,10 @@ function App(){
         bottomButtonImgSrc="/BotonSubirEstudio.png"
         sidebarImgSrc="/LogoVertical.png"
       />
+       
       {/* Otros componentes o contenido */}
     </div>
+    
 
 
    )  
