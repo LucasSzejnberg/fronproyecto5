@@ -18,7 +18,7 @@ const RequestEstudios: React.FC = () => {
   useEffect(() => {
     const fetchEstudios = async () => {
       try {
-        const response = await fetch('https://healthy-back.vercel.app/estudios');
+        const response = await fetch('/api/estudios'); // Usar proxy
         if (!response.ok) {
           throw new Error('Error al obtener los estudios');
         }
