@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Rectangulo from './Rectangulo';
 
+const URL = "https://healthy-back.vercel.app";
+
 interface Estudio {
   id_estudios: number;
   archivo_estudios: string;
@@ -19,7 +21,7 @@ const RequestEstudios: React.FC = () => {
   useEffect(() => {
     const fetchEstudios = async () => {
       try {
-        const response = await fetch('/api/estudios'); // Usar proxy
+        const response = await fetch(URL + '/api/estudios'); // Usar proxy
         if (!response.ok) {
           throw new Error('Error al obtener los estudios');
         }
