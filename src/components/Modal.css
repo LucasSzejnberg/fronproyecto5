@@ -16,18 +16,18 @@
 
 .modal-contenido {
   background-color: #FFF; /* Fondo blanco para el modal */
-  padding: 20px;
-  border-radius: 8px;
+  padding: 1%;
+  border-radius: 4%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
-  margin-left: 400px;
-  margin-right: 400px;
-  height: 190px;
-  width: 340px;
+  margin-left: 55%;
+  margin-right: 55%;
+  height: 34%;
+  width: 26%;
 }
 
 
 .modal-input{
-  margin-top: 20px;
+  margin-top: 5%;
   height: 50px;
   width: 300px;
   background-color: #D9D9D9;

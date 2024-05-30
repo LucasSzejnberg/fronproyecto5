@@ -9,9 +9,11 @@ interface SquareImageTextProps {
 const SquareImageText: React.FC<SquareImageTextProps> = ({ imageSrc, text }) => {
   return (
     <div className="container44">
-      <div className="square"></div>
-      <img src={imageSrc} alt="example" className="image" />
-      <p className="text">{text}</p>
+      <div className="square">
+        <img src="/BotonArchivo.png" alt="example" className="image3" />
+        <p className="text1">{text}</p>
+        <img src="/ImgTresPuntos.png" alt="example" className="image4" />
+      </div>
     </div>
   );
 };

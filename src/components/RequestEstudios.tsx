@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Rectangulo from './Rectangulo';
 
 interface Estudio {
   id_estudios: number;
@@ -24,6 +25,7 @@ const RequestEstudios: React.FC = () => {
         }
         const data: Estudio[] = await response.json();
         setEstudios(data);
+        
       } catch (error) {
         setError(error.message);
       } finally {
