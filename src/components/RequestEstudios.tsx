@@ -25,7 +25,6 @@ const RequestEstudios: React.FC = () => {
         }
         const data: Estudio[] = await response.json();
         setEstudios(data);
-        
       } catch (error) {
         setError(error.message);
       } finally {
@@ -45,8 +44,14 @@ const RequestEstudios: React.FC = () => {
   }
 
   return (
-    <div>
-     
+    <div className="grilla">
+      {estudios.map(estudio => (
+        <Rectangulo
+          key={estudio.id_estudios}
+          imageSrc={estudio.archivo_estudios}
+          text={estudio.tipo_estudios || estudio.id_estudios.toString()}
+        />
+      ))}
     </div>
   );
 };
