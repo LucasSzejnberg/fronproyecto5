@@ -21,7 +21,7 @@ const RequestEstudios: React.FC = () => {
   useEffect(() => {
     const fetchEstudios = async () => {
       try {
-        const response = await fetch(URL + '/api/estudios'); // Usar proxy
+        const response = await fetch(URL + '/estudios'); // Usar proxy
         if (!response.ok) {
           throw new Error('Error al obtener los estudios');
         }
