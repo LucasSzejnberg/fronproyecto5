@@ -21,13 +21,15 @@ const RequestEstudios: React.FC = () => {
   useEffect(() => {
     const fetchEstudios = async () => {
       try {
-        const response = await fetch(URL + '/api/estudios'); // Usar proxy
+        const response = await fetch(URL + '/estudios'); // Usar proxy
         if (!response.ok) {
+          console.error('HTTP error:', response.status, response.statusText);
           throw new Error('Error al obtener los estudios');
         }
         const data: Estudio[] = await response.json();
         setEstudios(data);
       } catch (err) {
+        console.error('Fetch error:', err);
         if (err instanceof Error) {
           setError(err.message);
         } else {
