@@ -46,20 +46,7 @@ const RequestEstudios: React.FC = () => {
 
   return (
     <div>
-      <h1>Estudios</h1>
-      <ul>
-        {estudios.map(estudio => (
-          <li key={estudio.id_estudios}>
-            <p>ID: {estudio.id_estudios}</p>
-            <p>Archivo: {estudio.archivo_estudios}</p>
-            <p>Tipo: {estudio.tipo_estudios}</p>
-            <p>Diagnóstico: {estudio.diagnostico_estudios}</p>
-            <p>Fecha: {estudio.fecha_estudios}</p>
-            <p>Subido por: {estudio.quien_subio_estudios}</p>
-            <p>ID de usuario: {estudio.id_usuarios}</p>
-          </li>
-        ))}
-      </ul>
+     
     </div>
   );
 };

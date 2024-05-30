@@ -33,6 +33,14 @@
     margin-left: 95%;
     object-fit: cover; /* Para mantener la proporción de la imagen */
   }
+  .image45 {
+
+    width: 2%;
+    height: 64%;
+    margin-top: -1500%;
+    margin-left: 95%;
+
+  }
   
   .text1 {
     margin-top: -7.8%;
