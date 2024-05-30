@@ -25,8 +25,12 @@ const RequestEstudios: React.FC = () => {
         }
         const data: Estudio[] = await response.json();
         setEstudios(data);
-      } catch (error) {
-        setError(error.message);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('Error desconocido');
+        }
       } finally {
         setLoading(false);
       }
