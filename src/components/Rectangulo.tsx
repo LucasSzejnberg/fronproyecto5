@@ -10,7 +10,7 @@ const Rectangulo: React.FC<RectanguloProps> = ({ imageSrc, text }) => {
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = imageSrc;
-    link.download = 'estudio.png';
+    link.setAttribute('download', 'estudio.png');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
