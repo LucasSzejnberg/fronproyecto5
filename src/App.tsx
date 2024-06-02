@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Banner logoSrc="/logo.png" altText="Mi Logo" />
-      <SearchBanner imgSrc="/ImgEstudios.png" />
+      
       <Sidebar 
         topButton1ImgSrc="/BotonEstudios.png"
         topButton2ImgSrc="/BotonHistoriaClinica.png"
