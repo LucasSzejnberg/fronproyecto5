@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Modal.css';
- 
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -21,7 +21,8 @@ const handleButton3Click = async (url: string, data: any) => {
       const responseData = await response.json();
       console.log('Respuesta del servidor:', responseData);
     } else {
-      throw new Error('Error en la solicitud POST');
+      const errorData = await response.json();
+      throw new Error(`Error en la solicitud POST: ${response.status} ${response.statusText}: ${errorData.message}`);
     }
   } catch (error) {
     console.error('Error en la solicitud POST:', error);
@@ -59,7 +60,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       fileSize: selectedFile?.size
     };
 
-    handleButton3Click("http://localhost:3000/", data);
+    handleButton3Click("https://healthy-back.vercel.app/estudios", data);
   };
 
   if (!isOpen) return null;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Rectangulo from './Rectangulo';
+import SearchBanner from './SearchBanner';
 
 const URL = "https://healthy-back.vercel.app";
 
@@ -17,11 +18,12 @@ const RequestEstudios: React.FC = () => {
   const [estudios, setEstudios] = useState<Estudio[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchEstudios = async () => {
       try {
-        const response = await fetch(URL + '/estudios'); // Usar proxy
+        const response = await fetch(URL + '/estudios');
         if (!response.ok) {
           console.error('HTTP error:', response.status, response.statusText);
           throw new Error('Error al obtener los estudios');
@@ -43,6 +45,10 @@ const RequestEstudios: React.FC = () => {
     fetchEstudios();
   }, []);
 
+  const filteredEstudios = estudios.filter(estudio =>
+    estudio.tipo_estudios.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (loading) {
     return <div>Cargando...</div>;
   }
@@ -52,14 +58,17 @@ const RequestEstudios: React.FC = () => {
   }
 
   return (
-    <div className="grilla">
-      {estudios.map(estudio => (
-        <Rectangulo
-          key={estudio.id_estudios}
-          imageSrc={estudio.archivo_estudios}
-          text={estudio.tipo_estudios || estudio.id_estudios.toString()}
-        />
-      ))}
+    <div>
+      <SearchBanner imgSrc="/ImgEstudios.png" onSearch={setSearchTerm} />
+      <div className="grilla">
+        {filteredEstudios.map(estudio => (
+          <Rectangulo
+            key={estudio.id_estudios}
+            imageSrc={estudio.archivo_estudios}
+            text={estudio.tipo_estudios || estudio.id_estudios.toString()}
+          />
+        ))}
+      </div>
     </div>
   );
 };
