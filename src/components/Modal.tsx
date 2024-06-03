@@ -11,9 +11,7 @@ const handleButton3Click = async (url: string, formData: FormData) => {
     console.log("Botón 3 fue clickeado");
     const response = await fetch(url, {
       method: 'POST',
-      headers: {
-        "Content-Type": "multipart/form-data; boundary=cualquiercosa"
-      },
+      
       body: formData
     });
 
