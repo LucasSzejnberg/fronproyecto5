@@ -6,15 +6,15 @@ interface ModalProps {
   onClose: () => void;
 }
 
-const handleButton3Click = async (url: string, data: any) => {
+const handleButton3Click = async (url: string, formData: FormData) => {
   try {
     console.log("Botón 3 fue clickeado");
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "multipart/form-data; boundary=cualquiercosa"
       },
-      body: JSON.stringify(data)
+      body: formData
     });
 
     if (response.ok) {
@@ -29,9 +29,10 @@ const handleButton3Click = async (url: string, data: any) => {
   }
 };
 
+
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [inputValue, setInputValue] = useState<string>('');
+  const [fecha, setFecha] = useState<string>('');
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -49,18 +50,30 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+    setFecha(event.target.value);
   };
 
-  const handleSubmit = () => {
-    const data = {
-      name: inputValue,
-      fileName: selectedFile?.name,
-      fileType: selectedFile?.type,
-      fileSize: selectedFile?.size
-    };
+  const handleSubmit = async () => {
+    if (!selectedFile) {
+      console.error('No file selected');
+      return;
+    }
 
-    handleButton3Click("https://healthy-back.vercel.app/estudios", data);
+    const formData = new FormData();
+    const currentDate = new Date(fecha).toISOString().split('T')[0]; // Convertir la fecha ingresada a formato ISO
+    formData.append("date", currentDate);
+    formData.append("tipo", "1");
+    formData.append("quien_subio", "hola");
+    formData.append("usuario", "1");
+    formData.append("file", selectedFile);
+
+    console.log('Datos a enviar:', formData);
+
+    for (const pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
+
+    await handleButton3Click("https://healthy-back.vercel.app/estudio", formData);
   };
 
   if (!isOpen) return null;
@@ -74,10 +87,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           </div>
           <div className="modal-body">
             <input
-              type="text"
-              placeholder="Nombre..."
+              type="date"
+              placeholder="Fecha..."
               className="modal-input"
-              value={inputValue}
+              value={fecha}
               onChange={handleInputChange}
             />
           </div>
