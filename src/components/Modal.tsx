@@ -11,22 +11,22 @@ const handleButton3Click = async (url: string, formData: FormData) => {
     console.log("Botón 3 fue clickeado");
     const response = await fetch(url, {
       method: 'POST',
-      
       body: formData
     });
 
     if (response.ok) {
       const responseData = await response.json();
       console.log('Respuesta del servidor:', responseData);
+      return true; // Indica que la solicitud fue exitosa
     } else {
       const errorData = await response.json();
       throw new Error(`Error en la solicitud POST: ${response.status} ${response.statusText}: ${errorData.message}`);
     }
   } catch (error) {
     console.error('Error en la solicitud POST:', error);
+    return false; // Indica que la solicitud falló
   }
 };
-
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -71,7 +71,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       console.log(pair[0], pair[1]);
     }
 
-    await handleButton3Click("https://healthy-back.vercel.app/estudio", formData);
+    const success = await handleButton3Click("https://healthy-back.vercel.app/estudio", formData);
+    if (success) {
+      window.location.reload(); // Recargar la página si la solicitud fue exitosa
+    }
   };
 
   if (!isOpen) return null;
