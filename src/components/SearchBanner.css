@@ -13,6 +13,18 @@
     margin-top: -6%;
   }
   
+  .search-banner2 {
+    width: 100%;
+    height: 80px; /* Ajusta la altura según tus necesidades */
+    background-color: #D9D9D9; /* Fondo blanco */
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Añade un poco de padding a los lados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para separar visualmente */
+    position: fixed;
+    margin-top: 9%;
+  }
+
   .banner-img {
     height: 20%; /* Ajusta el tamaño de la imagen */
     margin-right: 0px; /* Espacio entre la imagen y la barra de búsqueda */
@@ -20,6 +32,14 @@
     width: 35%;
     height: 30%;
     margin-top: 1%;
+  }
+  .banner-img2 {
+    height: 20%; /* Ajusta el tamaño de la imagen */
+    margin-right: 0px; /* Espacio entre la imagen y la barra de búsqueda */
+    margin-left: 225px;
+    width: 35%;
+    height: 60%;
+    margin-top: 0%;
   }
   
   .search-input {

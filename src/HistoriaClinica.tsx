@@ -1,6 +1,8 @@
 // src/screens/HistoriaClinica.tsx
 import Sidebar2 from './components/Sidebar2';
 import BannerHistorial from './components/BannerHistorial'; // Ajusta la ruta según la ubicación de tu archivo
+import SearchBanner2 from './components/SearchBanner2';
+
 
 const HistoriaClinica = () => {
   return (
@@ -12,6 +14,7 @@ const HistoriaClinica = () => {
         bottomButtonImgSrc="/HistorialNuevoBoton.png"
         sidebarImgSrc="/LogoVertical.png"
       />
+      <SearchBanner2 imgSrc="/VerHistorial.png" />
     </div>
   );
 };
