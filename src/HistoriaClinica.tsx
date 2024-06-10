@@ -1,5 +1,5 @@
 // src/screens/HistoriaClinica.tsx
-import React from 'react';
+
 import BannerHistorial from './components/BannerHistorial'; // Ajusta la ruta según la ubicación de tu archivo
 
 const HistoriaClinica = () => {
