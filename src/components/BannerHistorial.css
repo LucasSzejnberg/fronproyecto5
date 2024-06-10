@@ -6,11 +6,12 @@
     justify-content: center;
     align-items: center;
     position: fixed;
- 
+ margin-top: -1.2%;
     z-index: 10000000;
   }
   
   .logo {
+    margin-top: 1.4%;
     max-width: 77%; /* Ajustar el tamaño del logo */
     max-height: 75%; /* Ajustar el tamaño del logo */
   }
