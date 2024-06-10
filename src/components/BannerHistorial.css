@@ -1,0 +1,17 @@
+.banner1 {
+    width: 100%;
+    height: 23%; /* Puedes ajustar la altura según tus necesidades */
+    background-color: #EEB573; /* Color amarillo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+ 
+    z-index: 10000000;
+  }
+  
+  .logo {
+    max-width: 77%; /* Ajustar el tamaño del logo */
+    max-height: 75%; /* Ajustar el tamaño del logo */
+  }
+  

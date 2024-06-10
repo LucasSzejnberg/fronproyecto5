@@ -26,6 +26,8 @@ const handleButton3Click = async (url: string, formData: FormData) => {
     console.error('Error en la solicitud POST:', error);
     return false; // Indica que la solicitud falló
   }
+  
+  
 };
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
@@ -60,7 +62,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     const formData = new FormData();
     const currentDate = new Date(fecha).toISOString().split('T')[0]; // Convertir la fecha ingresada a formato ISO
     formData.append("date", currentDate);
-    formData.append("tipo", "1");
+    formData.append("tipo", "2");
     formData.append("quien_subio", "hola");
     formData.append("usuario", "1");
     formData.append("file", selectedFile);
@@ -72,9 +74,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     }
 
     const success = await handleButton3Click("https://healthy-back.vercel.app/estudio", formData);
-    if (success) {
-      window.location.reload(); // Recargar la página si la solicitud fue exitosa
-    }
+    window.location.reload();
+
+    
   };
 
   if (!isOpen) return null;

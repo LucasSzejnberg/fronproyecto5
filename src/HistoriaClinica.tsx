@@ -1,10 +1,12 @@
 // src/screens/HistoriaClinica.tsx
 import React from 'react';
+import BannerHistorial from './components/BannerHistorial'; // Ajusta la ruta según la ubicación de tu archivo
 
 const HistoriaClinica = () => {
   return (
     <div>
-      <h1>Hola Mundo</h1>
+      <BannerHistorial logoSrc="/logo.png" altText="Mi Logo" />
+      <h1>Hol Mundo</h1>
     </div>
   );
 };
