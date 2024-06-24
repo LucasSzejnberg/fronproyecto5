@@ -46,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
       
       <button className="sidebar-btn" onClick={openModal}>
-        <img src={bottomButtonImgSrc} alt="Bottom Button" className="btn-img" />
+        <img src={bottomButtonImgSrc} alt="Bottom 3" className="btn-img" />
       </button>
       <Modal2 isOpen={isModalOpen} onClose={closeModal} />
     </div>
