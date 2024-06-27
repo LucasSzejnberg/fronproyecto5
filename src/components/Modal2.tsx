@@ -1,5 +1,5 @@
 // Modal2.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import './Modal2.css';
 
 interface ModalProps {
@@ -8,6 +8,9 @@ interface ModalProps {
 }
 
 const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  const [nombre, setNombre] = useState('');
+  const [fecha, setFecha] = useState('');
+
   if (!isOpen) return null;
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -16,22 +19,58 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     }
   };
 
+  const handleSubmit = async () => {
+    const data = {
+      fecha,
+      nombre,
+      contenido: '' // Clave "contenido" con un string vacío
+    };
+
+    try {
+      const response = await fetch('https://healthy-back.vercel.app/historial', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        console.log('Datos enviados con éxito');
+        onClose(); // Cerrar el modal después de enviar los datos
+      } else {
+        console.error('Error al enviar los datos');
+      }
+    } catch (error) {
+      console.error('Error en la solicitud', error);
+    }
+  };
+
   return (
     <div className="modal-overlay55" onClick={handleOverlayClick}>
       <div className="modal-content55">
-        {/* Aquí puedes colocar el contenido del modal */}
         <div className="porfavorfunciona">
-        <img src="/nuevohistorial.png" alt="Modal Image" className="modal-image32" />
-        <input type="text" placeholder="Nombre" className="modal-input54" />
-        <input type="date" className="modal-input999" />
+          <img src="/nuevohistorial.png" alt="Modal Image" className="modal-image32" />
+          <input
+            type="text"
+            placeholder="Nombre"
+            className="modal-input54"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+          />
+          <input
+            type="date"
+            className="modal-input999"
+            value={fecha}
+            onChange={(e) => setFecha(e.target.value)}
+          />
         </div>
         <div className="modal-buttons38">
-        
           <button className="modal-button101" onClick={onClose}>
             <img src="/BotonCancelar.png" alt="Cancelar" className="button-icon" />
           </button>
-          <button className="modal-button102">
-            <img src="BotonCrear.png" alt="Aceptar" className="button-icon" />
+          <button className="modal-button102" onClick={handleSubmit}>
+            <img src="/BotonCrear.png" alt="Aceptar" className="button-icon" />
           </button>
         </div>
       </div>
