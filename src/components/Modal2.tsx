@@ -26,11 +26,12 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         <input type="date" className="modal-input999" />
         </div>
         <div className="modal-buttons38">
-        <button className="modal-button102">
-            <img src="BotonCrear.png" alt="Aceptar" className="button-icon" />
-          </button>
+        
           <button className="modal-button101" onClick={onClose}>
             <img src="/BotonCancelar.png" alt="Cancelar" className="button-icon" />
+          </button>
+          <button className="modal-button102">
+            <img src="BotonCrear.png" alt="Aceptar" className="button-icon" />
           </button>
         </div>
       </div>
