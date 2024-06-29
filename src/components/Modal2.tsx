@@ -10,6 +10,7 @@ interface ModalProps {
 const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [nombre, setNombre] = useState('');
   const [fecha, setFecha] = useState('');
+  const [mensaje, setMensaje] = useState('');
 
   if (!isOpen) return null;
 
@@ -23,7 +24,7 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     const data = {
       fecha,
       nombre,
-      contenido: '' // Clave "contenido" con un string vacío
+      contenido: mensaje // Ahora la clave "contenido" tendrá el mensaje
     };
 
     try {
@@ -63,6 +64,12 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             className="modal-input999"
             value={fecha}
             onChange={(e) => setFecha(e.target.value)}
+          />
+          <textarea
+            placeholder="Mensaje"
+            className="modal-textarea1"
+            value={mensaje}
+            onChange={(e) => setMensaje(e.target.value)}
           />
         </div>
         <div className="modal-buttons38">
