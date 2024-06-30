@@ -1,0 +1,57 @@
+/* Estilos para RequestHistorial y Rectangulo2 */
+.historial-container {
+    margin-top: 300px;
+    margin-left: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow-y: auto;
+    max-height: 400px; /* Altura máxima para habilitar el scroll */
+  }
+  
+  .rectangulo2-container {
+    border-radius: 10px;
+    width: 40%;
+    height: 71px;
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .rectangulo2-content {
+    width: 250%;
+    height: 4px;
+   
+    flex-direction: column;
+  }
+  
+  .rectangulo2-date {
+    font-weight: bold;
+  }
+  
+  .rectangulo2-name {
+    margin-top: 5px;
+    font-size: 1.2rem;
+  }
+  
+  .rectangulo2-message {
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .rectangulo2-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .rectangulo2-button:hover {
+    background-color: #0056b3;
+  }
+  
