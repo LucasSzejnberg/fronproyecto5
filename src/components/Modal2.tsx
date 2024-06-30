@@ -30,7 +30,7 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     };
 
     try {
-      const response = await fetch('http://healthy-back.vercel.app/historial/1', {
+      const response = await fetch('https://healthy-back.vercel.app/historial/1', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
