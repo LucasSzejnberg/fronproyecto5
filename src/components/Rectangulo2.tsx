@@ -7,16 +7,16 @@ interface RectanguloProps {
   punto_historialmedico: string; // Nuevo campo para el mensaje del historial médico
   onClick: () => void; // Función para manejar el click del botón
 }
-
+let a="dsd";
 const Rectangulo2: React.FC<RectanguloProps> = ({ fecha, nombre, punto_historialmedico, onClick }) => {
-  // Guardamos el valor en una variable (aunque no la usemos ahora)
-  const storedMessage = punto_historialmedico;
-
+    a=punto_historialmedico;
   return (
     <div className="rectangulo2-container">
       <div className="rectangulo2-content">
         <span className="rectangulo2-date">{fecha}</span>
         <span className="rectangulo2-name">{nombre}</span>
+        {/* El mensaje se guarda pero no se muestra */}
+        {/* <p className="rectangulo2-message">{punto_historialmedico}</p> */}
         <button className="rectangulo2-button" onClick={onClick}>
           Ver Detalles
         </button>
