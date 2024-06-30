@@ -22,13 +22,15 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
   const handleSubmit = async () => {
     const data = {
-      fecha,
-      nombre,
-      contenido: mensaje // Ahora la clave "contenido" tendrá el mensaje
+      punto_historialmedico: mensaje,
+      fecha_historialmedico: fecha,
+      quien_subio_historialmedico: nombre,
+      id_usuario: 1,
+      id_estudios: 35
     };
 
     try {
-      const response = await fetch('https://healthy-back.vercel.app/historial', {
+      const response = await fetch('http://healthy-back.vercel.app/historial/1', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -40,7 +42,7 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         console.log('Datos enviados con éxito');
         onClose(); // Cerrar el modal después de enviar los datos
       } else {
-        console.error('Error al enviar los datos');
+        console.error(`Error al enviar los datos: ${response.status} ${response.statusText}`);
       }
     } catch (error) {
       console.error('Error en la solicitud', error);
