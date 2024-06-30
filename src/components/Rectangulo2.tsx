@@ -9,6 +9,8 @@ interface RectanguloProps {
 }
 let a="dsd";
 const Rectangulo2: React.FC<RectanguloProps> = ({ fecha, nombre, punto_historialmedico, onClick }) => {
+    let b=a;
+    a=b;
     a=punto_historialmedico;
   return (
     <div className="rectangulo2-container">
