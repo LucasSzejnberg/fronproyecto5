@@ -22,15 +22,16 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
   const handleSubmit = async () => {
     const data = {
-      punto_historialmedico: mensaje,
-      fecha_historialmedico: fecha,
-      quien_subio_historialmedico: nombre,
-      id_usuario: 1,
-      id_estudios: 1
+      punto: mensaje,
+      date: fecha,
+      who: nombre,
+      user: 1,
+      estudios: 1
     };
 
     try {
-      const response = await fetch('https://healthy-back.vercel.app/historial', {
+      console.log("data:", data);
+      const response = await fetch('http://healthy-back.vercel.app/historial', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
