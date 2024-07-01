@@ -23,17 +23,19 @@
   
   .rectangulo2-content {
     width: 250%;
-    height: 4px;
+    height: 100%;
    
     flex-direction: column;
   }
   
   .rectangulo2-date {
     font-weight: bold;
+    margin-top: 200px;
   }
   
   .rectangulo2-name {
-    margin-top: 5px;
+    margin-top: 0px;
+    margin-left: 10%;
     font-size: 1.2rem;
   }
   
