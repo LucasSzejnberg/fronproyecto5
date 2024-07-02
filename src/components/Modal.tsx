@@ -13,10 +13,12 @@ const handleButton3Click = async (url: string, formData: FormData) => {
       method: 'POST',
       body: formData
     });
+    console.log(response);
 
     if (response.ok) {
       const responseData = await response.json();
       console.log('Respuesta del servidor:', responseData);
+
       return true; // Indica que la solicitud fue exitosa
     } else {
       const errorData = await response.json();
