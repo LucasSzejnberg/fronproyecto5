@@ -37,7 +37,7 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
-        mode: 'no-cors'
+      
       });
       console.log(response);
       // if (response.ok) {
