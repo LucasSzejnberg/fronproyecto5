@@ -37,7 +37,7 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
-      
+      //toma react, chupame la pija
       });
       console.log(response);
       // if (response.ok) {
