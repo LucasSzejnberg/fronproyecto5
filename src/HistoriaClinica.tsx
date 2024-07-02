@@ -3,7 +3,9 @@ import Sidebar2 from './components/Sidebar2';
 import BannerHistorial from './components/BannerHistorial';
 import SearchBanner2 from './components/SearchBanner2';
 import RequestHistorial from './components/RequestHistorial';
-
+let x=React;
+let r=x;
+x=r;
 const HistoriaClinica = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
