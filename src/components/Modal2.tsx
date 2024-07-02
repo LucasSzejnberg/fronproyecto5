@@ -39,13 +39,13 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         body: JSON.stringify(data),
         mode: 'no-cors'
       });
-
-      if (response.ok) {
-        console.log('Datos enviados con éxito');
-        onClose(); // Cerrar el modal después de enviar los datos
-      } else {
-        console.error(`Error al enviar los datos: ${response.status} ${response.statusText}`);
-      }
+      console.log(response);
+      // if (response.ok) {
+      //   console.log('Datos enviados con éxito');
+      //   onClose(); // Cerrar el modal después de enviar los datos
+      // } else {
+      //   console.error(`Error al enviar los datos: ${response.status} ${response.statusText}`);
+      // }
     } catch (error) {
       console.error('Error en la solicitud', error);
     }
