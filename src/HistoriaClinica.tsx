@@ -1,11 +1,12 @@
-// src/screens/HistoriaClinica.tsx
-
+import React, { useState } from 'react';
 import Sidebar2 from './components/Sidebar2';
 import BannerHistorial from './components/BannerHistorial';
 import SearchBanner2 from './components/SearchBanner2';
-import RequestHistorial from './components/RequestHistorial'; // Ajusta la ruta según la ubicación de tu archivo
+import RequestHistorial from './components/RequestHistorial';
 
 const HistoriaClinica = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <div>
       <BannerHistorial logoSrc="/logo.png" altText="Mi Logo" />
@@ -15,8 +16,8 @@ const HistoriaClinica = () => {
         bottomButtonImgSrc="/HistorialNuevoBoton.png"
         sidebarImgSrc="/LogoVertical.png"
       />
-      <SearchBanner2 imgSrc="/VerHistorial.png" />
-      <RequestHistorial /> {/* Agrega el componente RequestHistorial aquí */}
+      <SearchBanner2 imgSrc="/VerHistorial.png" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <RequestHistorial searchTerm={searchTerm} />
     </div>
   );
 };
