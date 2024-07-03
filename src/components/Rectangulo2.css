@@ -5,7 +5,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    overflow-y: auto;
     
   }
   
@@ -15,7 +14,7 @@
     height: 70px;
     background-color: #D9D9D9;
     display: flex;
-    align-items: center;
+    
     justify-content: space-between;
     padding: 10px;
     margin: 10px;
@@ -29,12 +28,12 @@
   }
   
   .rectangulo2-date {
-    
+    margin-top: 100px;
     font-size: 23px;
     font-family: "Noticia Text", serif;
     font-weight: 400;
     font-style: normal;
-    margin-bottom: 1000px;
+  
     color: black;
   }
   
@@ -54,7 +53,9 @@
   }
   
   .rectangulo2-button {
-    margin-left: 35%;
+    align-self: right;
+    float: right;
+   
     background-color: #007bff00;
     color: white;
     border: none;
