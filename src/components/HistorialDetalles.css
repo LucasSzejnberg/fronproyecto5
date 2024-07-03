@@ -9,14 +9,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10000000;
   }
   
   .historial-detalles-content {
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
+   
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Ajusta el tamaño según tus necesidades */
+    width: 30%; /* Ajusta el tamaño según tus necesidades */
+    height: 80%;
     text-align: center;
+    z-index: 999999999999999;
+    
   }
+
+  .historial-detalles-nombre{
   
+  }
+  .historial-detalles-fecha{
+    margin-top: 10%;
+  }
+
+  .historial-detalles-punto{
+    text-align:left;
+    margin-top: 10%;
+  }

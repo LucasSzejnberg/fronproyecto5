@@ -29,14 +29,21 @@
   }
   
   .rectangulo2-date {
-    font-weight: bold;
-    margin-top: 200px;
+    font-family: "Noticia Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 1000px;
+    color: black;
   }
   
   .rectangulo2-name {
+    font-family: "Noticia Text", serif;
+    font-weight: 400;
+    font-style: normal;
     margin-top: 0px;
     margin-left: 10%;
     font-size: 1.2rem;
+    color: black;
   }
   
   .rectangulo2-message {
@@ -45,7 +52,7 @@
   }
   
   .rectangulo2-button {
-    background-color: #007bff;
+    background-color: #007bff00;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -54,6 +61,6 @@
   }
   
   .rectangulo2-button:hover {
-    background-color: #0056b3;
+    background-color: #0057b300;
   }
   

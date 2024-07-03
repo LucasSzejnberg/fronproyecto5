@@ -19,13 +19,18 @@ const Rectangulo2: React.FC<RectanguloProps> = ({ fecha, nombre, punto_historial
     setIsModalOpen(false);
   };
 
+  const formatDate = (dateString: string) => {
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
+  };
+
   return (
     <div className="rectangulo2-container">
       <div className="rectangulo2-content">
-        <span className="rectangulo2-date">{fecha}</span>
-        <span className="rectangulo2-name">{nombre}</span>
+        <span className="rectangulo2-date">{formatDate(fecha)}</span>
+        <span className="rectangulo2-name">{"-  "+nombre}</span>
         <button className="rectangulo2-button" onClick={handleButtonClick}>
-          Ver Detalles
+          <img src="/tresPuntitos.png" alt="" />
         </button>
       </div>
       <HistorialDetalles

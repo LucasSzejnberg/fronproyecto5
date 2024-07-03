@@ -40,14 +40,14 @@
   padding-left: 14px;
   border: none;
   font-size: 20px;
-  color: black;
+  color: 3D3D3D;
   font-family: "Noticia Text", serif;
   font-weight: 400;
   font-style: normal;
 }
 
 input::placeholder {
-  color: black;
+  color: 3D3D3D;
 }
 
 .modal-button-button11 {

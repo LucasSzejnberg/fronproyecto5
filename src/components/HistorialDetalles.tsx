@@ -19,12 +19,17 @@ const HistorialDetalles: React.FC<HistorialDetallesProps> = ({ isOpen, onClose, 
     }
   };
 
+  const formatDate = (dateString: string) => {
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
+  };
+
   return (
     <div className="historial-detalles-overlay" onClick={handleOverlayClick}>
       <div className="historial-detalles-content">
-        <h2>{nombre}</h2>
-        <p>{fecha}</p>
-        <p>{punto_historialmedico}</p>
+        <h2 className="historial-detalles-nombre">{nombre}</h2>
+        <p className="historial-detalles-fecha">{formatDate(fecha)}</p>
+        <p className="historial-detalles-punto">{punto_historialmedico}</p>
       </div>
     </div>
   );
