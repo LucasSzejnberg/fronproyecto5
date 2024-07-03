@@ -8,7 +8,7 @@ interface SidebarProps {
   topButton2ImgSrc: string;
   sidebarImgSrc: string;
   bottomButtonImgSrc: string;
-  turnosButtonImgSrc: string; // Añadir esta prop para la imagen del botón de turnos
+ 
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ 
@@ -16,7 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   topButton2ImgSrc, 
   sidebarImgSrc, 
   bottomButtonImgSrc,
-  turnosButtonImgSrc // Añadir esta prop para la imagen del botón de turnos
+
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
