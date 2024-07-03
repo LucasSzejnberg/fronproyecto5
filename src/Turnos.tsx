@@ -18,7 +18,7 @@ const Turnos: React.FC = () => {
     };
 
     try {
-      const response = await fetch('https://josephfiter.no/turnos', {
+      const response = await fetch('https://healthy-back.vercel.app/turnos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
