@@ -53,10 +53,14 @@
   padding-left: 14px;
   border: none;
   font-size: 20px;
-  color: 3D3D3D;
+  color: black;
   font-family: "Noticia Text", serif;
   font-weight: 400;
   font-style: normal;
+  &::placeholder {
+    color: black;
+    
+  }
   }
   .modal-input999{
     margin-top: 20%;
@@ -69,10 +73,14 @@
   padding-left: 14px;
   border: none;
   font-size: 20px;
-  color: 3D3D3D;
+  color: black;
   font-family: "Noticia Text", serif;
   font-weight: 400;
   font-style: normal;
+  &::placeholder {
+    color: black;
+    
+  }
   }
   .modal-buttons38{
     width: 320%;
@@ -93,9 +101,13 @@
     padding-left: 14px;
     border: none;
     font-size: 20px;
-    color: 3D3D3D;
+    color: black;
     font-family: "Noticia Text", serif;
     font-weight: 400;
     font-style: normal;
+    &::placeholder {
+      color: black;
+      
+    }
   }
   

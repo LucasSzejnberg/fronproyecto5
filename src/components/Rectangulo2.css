@@ -29,6 +29,8 @@
   }
   
   .rectangulo2-date {
+    
+    font-size: 23px;
     font-family: "Noticia Text", serif;
     font-weight: 400;
     font-style: normal;
@@ -52,6 +54,7 @@
   }
   
   .rectangulo2-button {
+    margin-left: 35%;
     background-color: #007bff00;
     color: white;
     border: none;

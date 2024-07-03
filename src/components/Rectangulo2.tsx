@@ -27,8 +27,8 @@ const Rectangulo2: React.FC<RectanguloProps> = ({ fecha, nombre, punto_historial
   return (
     <div className="rectangulo2-container">
       <div className="rectangulo2-content">
-        <span className="rectangulo2-date">{formatDate(fecha)}</span>
-        <span className="rectangulo2-name">{"-  "+nombre}</span>
+        <span className="rectangulo2-date">{formatDate(fecha)+ "  -  "+nombre }</span>
+        
         <button className="rectangulo2-button" onClick={handleButtonClick}>
           <img src="/tresPuntitos.png" alt="" />
         </button>
