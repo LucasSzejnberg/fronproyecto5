@@ -1,18 +1,18 @@
 /* Estilos para RequestHistorial y Rectangulo2 */
 .historial-container {
-    margin-top: 300px;
-    margin-left: 400px;
+    margin-top: 15%;
+    margin-left: 20%;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     overflow-y: auto;
-    max-height: 400px; /* Altura máxima para habilitar el scroll */
+    
   }
   
   .rectangulo2-container {
     border-radius: 10px;
-    width: 40%;
-    height: 71px;
+    width: 41%;
+    height: 70px;
     background-color: #D9D9D9;
     display: flex;
     align-items: center;
