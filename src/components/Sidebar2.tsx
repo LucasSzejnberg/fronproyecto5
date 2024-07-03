@@ -8,13 +8,15 @@ interface SidebarProps {
   topButton2ImgSrc: string;
   sidebarImgSrc: string;
   bottomButtonImgSrc: string;
+  turnosButtonImgSrc: string; // Añadir esta prop para la imagen del botón de turnos
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ 
   topButton1ImgSrc, 
   topButton2ImgSrc, 
   sidebarImgSrc, 
-  bottomButtonImgSrc 
+  bottomButtonImgSrc,
+  turnosButtonImgSrc // Añadir esta prop para la imagen del botón de turnos
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
@@ -35,6 +37,10 @@ const Sidebar: React.FC<SidebarProps> = ({
     navigate('/historia-clinica');
   };
 
+  const handleTurnosButtonClick = () => {
+    navigate('/turnos');
+  };
+
   return (
     <div className="sidebar2">
       <button className="sidebar-btn" onClick={handleButton1Click}>
@@ -44,7 +50,11 @@ const Sidebar: React.FC<SidebarProps> = ({
         <img src={topButton2ImgSrc} alt="Button 2" className="btn-img" />
       </button>
       <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
-      
+
+      <button className="sidebar-btn" onClick={handleTurnosButtonClick}>
+        <img src={turnosButtonImgSrc} alt="Turnos" className="btn-img" />
+      </button>
+
       <button className="sidebar-btn" onClick={openModal}>
         <img src={bottomButtonImgSrc} alt="Bottom 3" className="btn-img" />
       </button>
