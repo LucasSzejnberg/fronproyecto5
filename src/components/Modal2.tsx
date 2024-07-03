@@ -37,7 +37,6 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
-      //toma react, chupame la pija
       });
       console.log(response);
       // if (response.ok) {
@@ -61,6 +60,7 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             placeholder="Nombre"
             className="modal-input54"
             value={nombre}
+            maxLength={20}
             onChange={(e) => setNombre(e.target.value)}
           />
           <input
@@ -73,6 +73,7 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             placeholder="Mensaje"
             className="modal-textarea1"
             value={mensaje}
+            maxLength={500}
             onChange={(e) => setMensaje(e.target.value)}
           />
         </div>

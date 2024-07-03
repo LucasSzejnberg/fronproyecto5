@@ -32,4 +32,6 @@
   .historial-detalles-punto{
     text-align:left;
     margin-top: 10%;
+    white-space: pre-wrap; /* This ensures the text wraps correctly */
+  word-wrap: break-word; /* This ensures the text wraps correctly */
   }
