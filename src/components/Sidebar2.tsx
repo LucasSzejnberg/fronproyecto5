@@ -39,7 +39,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   const handleTurnosButtonClick = () => {
     navigate('/turnos');
-  };
+  }; 
 
   return (
     <div className="sidebar2">
@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
 
       <button className="sidebar-btn" onClick={handleTurnosButtonClick}>
-        <img src={turnosButtonImgSrc} alt="Turnos" className="btn-img" />
+        <img src={"./tresPuntitos.png"} alt="Turnos" className="btn-img" />
       </button>
 
       <button className="sidebar-btn" onClick={openModal}>
