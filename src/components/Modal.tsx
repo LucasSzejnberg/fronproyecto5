@@ -1,12 +1,49 @@
 import React, { useState } from 'react';
 import './Modal.css';
 
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+async function uploadFileAndGetResult(file: File): Promise<string> {
+  if (!file) {
+    return 'Please select a file!';
+  }
+
+  const formData = new FormData();
+  formData.append('file', file);
+
+  try {
+    const response = await fetch('https://hjuyhjiuhjdsadasda-healthy.hf.space/upload-image/', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return 'Upload successful: ' + JSON.stringify(data);
+    } else {
+      return 'Upload failed: ' + response.statusText;
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      return 'Error: ' + error.message;
+    } else {
+      return 'Unexpected error occurred';
+    }
+  }
+}
+
+
+
+
 const handleButton3Click = async (url: string, formData: FormData) => {
+
+  
+  
+
   try {
     console.log("Botón 3 fue clickeado");
     const response = await fetch(url, {
@@ -17,7 +54,7 @@ const handleButton3Click = async (url: string, formData: FormData) => {
 
     if (response.ok) {
       const responseData = await response.json();
-      console.log('Respuesta del servidor:', responseData);
+      console.log( responseData);
 
       return true; // Indica que la solicitud fue exitosa
     } else {
@@ -60,11 +97,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       console.error('No file selected');
       return;
     }
+    const a= await uploadFileAndGetResult(selectedFile);
 
     const formData = new FormData();
     const currentDate = new Date(fecha).toISOString().split('T')[0]; // Convertir la fecha ingresada a formato ISO
     formData.append("date", currentDate);
-    formData.append("tipo", "2");
+    formData.append("tipo", a);
     formData.append("quien_subio", "hola");
     formData.append("usuario", "1");
     formData.append("file", selectedFile);
@@ -112,7 +150,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
       </div>
+      
     </div>
+     
   );
 }
 

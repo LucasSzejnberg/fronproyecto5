@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Sidebar.css';
 import Modal from './Modal';
-import Vicente from './Vicente';
+
 
 interface SidebarProps {
   topButton1ImgSrc: string;
@@ -50,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <img src={bottomButtonImgSrc} alt="Bottom Button" className="btn-img" />
       </button>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
-      <Vicente/>
+     
     </div>
   );
 }
