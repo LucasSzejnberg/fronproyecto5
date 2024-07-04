@@ -1,3 +1,4 @@
+// App.tsx
 import { Routes, Route } from 'react-router-dom';
 import HistoriaClinica from './HistoriaClinica';
 import Estudios from './Estudios';
