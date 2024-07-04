@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import RequestTurnos from './components/RequestTurnos';
 
 const Turnos: React.FC = () => {
   const [paciente, setPaciente] = useState('');
@@ -75,7 +75,7 @@ const Turnos: React.FC = () => {
         </div>
         <button type="submit">Guardar Turno</button>
       </form>
-    
+      <RequestTurnos />
     </div>
   );
 }
