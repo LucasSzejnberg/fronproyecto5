@@ -1,4 +1,4 @@
-import React, {  useEffect } from 'react';
+/*import React, {  useEffect } from 'react';
 
 interface UploadProps {
   file: File | null;
@@ -12,6 +12,8 @@ const UploadComponent: React.FC<UploadProps> = ({ file, onUploadResult, triggerU
       if (!file) {
         onUploadResult('Please select a file!');
         return;
+      }
+
       const formData = new FormData();
       formData.append('file', file);
 
@@ -46,3 +48,4 @@ const UploadComponent: React.FC<UploadProps> = ({ file, onUploadResult, triggerU
 };
 
 export default UploadComponent;
+*/
