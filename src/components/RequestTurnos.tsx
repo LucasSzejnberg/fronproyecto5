@@ -39,7 +39,7 @@ const RequestTurnos: React.FC = () => {
       <ul>
         {turnos.map((turno, index) => (
           <li key={index}>
-            {turno.paciente} - {turno.medico} - {turno.fecha} - {turno.hora}
+            {turno}
           </li>
         ))}
       </ul>
