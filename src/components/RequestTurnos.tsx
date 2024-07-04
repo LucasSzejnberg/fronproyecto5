@@ -11,7 +11,11 @@ const RequestTurnos: React.FC = () => {
         const response = await fetch('https://healthy-back.vercel.app/turnos');
         if (response.ok) {
           const data = await response.json();
-          setTurnos(data);
+          if (Array.isArray(data)) {
+            setTurnos(data);
+          } else {
+            setError('La respuesta del servidor no es un array');
+          }
         } else {
           setError('Error al obtener los turnos');
         }
@@ -39,7 +43,7 @@ const RequestTurnos: React.FC = () => {
       <ul>
         {turnos.map((turno, index) => (
           <li key={index}>
-            {turno}
+            {JSON.stringify(turno)}
           </li>
         ))}
       </ul>
