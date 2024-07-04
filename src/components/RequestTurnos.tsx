@@ -8,7 +8,7 @@ const RequestTurnos: React.FC = () => {
   useEffect(() => {
     const fetchTurnos = async () => {
       try {
-        const response = await fetch('https://healthy-back.vercel.app/turnos/lucas');
+        const response = await fetch('https://healthy-back.vercel.app/turnos/Lucas');
         if (response.ok) {
           const data = await response.json();
           setTurnos(data);
