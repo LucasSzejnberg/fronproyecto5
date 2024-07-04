@@ -7,7 +7,7 @@ import Turnos from './Turnos'; // Importar el nuevo componente
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Estudios />} />
+      <Route path="/estudios" element={<Estudios />} />
       <Route path="/historia-clinica" element={<HistoriaClinica />} />
       <Route path="/turnos" element={<Turnos />} /> {/* Nueva ruta */}
     </Routes>

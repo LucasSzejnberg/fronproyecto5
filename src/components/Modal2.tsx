@@ -37,15 +37,14 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
-      //toma react, chupame la pija
       });
-      console.log(response);
-      // if (response.ok) {
-      //   console.log('Datos enviados con éxito');
-      //   onClose(); // Cerrar el modal después de enviar los datos
-      // } else {
-      //   console.error(`Error al enviar los datos: ${response.status} ${response.statusText}`);
-      // }
+
+      if (response.ok) {
+        console.log('Datos enviados con éxito');
+        window.location.reload(); // Recargar la página después de enviar los datos con éxito
+      } else {
+        console.error(`Error al enviar los datos: ${response.status} ${response.statusText}`);
+      }
     } catch (error) {
       console.error('Error en la solicitud', error);
     }

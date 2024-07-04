@@ -30,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   const handleButton1Click = () => {
-    navigate('/');
+    navigate('/estudios');
   };
 
   const handleButton2Click = () => {

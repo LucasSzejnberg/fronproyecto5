@@ -114,7 +114,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     }
 
     await handleButton3Click("https://healthy-back.vercel.app/estudio", formData);
-    window.location.reload();
+    //window.location.reload();
 
     
   };
