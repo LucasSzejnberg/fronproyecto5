@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Sidebar2.css';
-
+import Modal5 from './Modal5'; // Asegúrate de que este archivo exista y esté correctamente importado
 
 interface SidebarProps {
   topButton1ImgSrc: string;
   topButton2ImgSrc: string;
   sidebarImgSrc: string;
   bottomButtonImgSrc: string;
- 
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ 
@@ -16,7 +15,6 @@ const Sidebar: React.FC<SidebarProps> = ({
   topButton2ImgSrc, 
   sidebarImgSrc, 
   bottomButtonImgSrc,
-
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
@@ -54,12 +52,17 @@ const Sidebar: React.FC<SidebarProps> = ({
       </button>
       <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
 
-      
-
       <button className="sidebar-btn" onClick={openModal}>
         <img src={bottomButtonImgSrc} alt="Bottom 3" className="btn-img" />
       </button>
-     
+
+      {isModalOpen && (
+        <Modal5 onClose={closeModal}>
+          <div className="modal-content">
+            <p>Contenido del modal</p>
+          </div>
+        </Modal5>
+      )}
     </div>
   );
 }
