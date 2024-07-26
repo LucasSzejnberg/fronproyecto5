@@ -1,0 +1,19 @@
+.request-turnos-container {
+  margin-top: 18%;
+  margin-left: 14%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px; /* Espacio entre rectángulos */
+  justify-content: flex-start; /* Alinea los rectángulos al inicio */
+}
+
+.rectangulo-wrapper {
+  flex: 0 0 calc(50% - 10px); /* 50% ancho menos el espacio del gap */
+  box-sizing: border-box; /* Incluye padding y border en el ancho */
+}
+
+@media (max-width: 599px) {
+  .rectangulo-wrapper {
+    flex: 0 0 100%; /* Ancho completo en pantallas más pequeñas */
+  }
+}

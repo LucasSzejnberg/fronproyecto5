@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Sidebar.css';
-import Modal from './Modal';
+import './Sidebar2.css';
 
 
 interface SidebarProps {
@@ -9,13 +8,15 @@ interface SidebarProps {
   topButton2ImgSrc: string;
   sidebarImgSrc: string;
   bottomButtonImgSrc: string;
+ 
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ 
   topButton1ImgSrc, 
   topButton2ImgSrc, 
   sidebarImgSrc, 
-  bottomButtonImgSrc 
+  bottomButtonImgSrc,
+
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
@@ -29,18 +30,19 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   const handleButton1Click = () => {
-    navigate('/');
+    navigate('/estudios');
   };
 
   const handleButton2Click = () => {
     navigate('/historia-clinica');
   };
+
   const handleTurnosButtonClick = () => {
     navigate('/turnos');
   }; 
 
   return (
-    <div className="sidebar">
+    <div className="sidebar2">
       <button className="sidebar-btn" onClick={handleButton1Click}>
         <img src={topButton1ImgSrc} alt="Button 1" className="btn-img" />
       </button>
@@ -51,11 +53,12 @@ const Sidebar: React.FC<SidebarProps> = ({
         <img src={"./tresPuntitos.png"} alt="Turnos" className="btn-img" />
       </button>
       <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
+
       
+
       <button className="sidebar-btn" onClick={openModal}>
-        <img src={bottomButtonImgSrc} alt="Bottom Button" className="btn-img" />
+        <img src={bottomButtonImgSrc} alt="Bottom 3" className="btn-img" />
       </button>
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
      
     </div>
   );

@@ -49,11 +49,12 @@ const Sidebar: React.FC<SidebarProps> = ({
       <button className="sidebar-btn" onClick={handleButton2Click}>
         <img src={topButton2ImgSrc} alt="Button 2" className="btn-img" />
       </button>
-      <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
-
       <button className="sidebar-btn" onClick={handleTurnosButtonClick}>
         <img src={"./tresPuntitos.png"} alt="Turnos" className="btn-img" />
       </button>
+      <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
+
+      
 
       <button className="sidebar-btn" onClick={openModal}>
         <img src={bottomButtonImgSrc} alt="Bottom 3" className="btn-img" />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RequestTurnos from './components/RequestTurnos';
+import RequestTurnos from './RequestTurnos';
 
 const Turnos: React.FC = () => {
   const [paciente, setPaciente] = useState('');
