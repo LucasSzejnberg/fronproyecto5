@@ -7,6 +7,10 @@ import RequestTurnos1 from './components/RequestTurnos1';
 const HistoriaClinica = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
+let a=React;
+let b=a;
+a=b;
+
   return (
     <div>
       <Banner2 logoSrc="/logo.png" altText="Mi Logo" />
