@@ -1,0 +1,53 @@
+.modal6-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal6-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .modal6-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal6-container label {
+    margin-bottom: 10px;
+  }
+  
+  .modal6-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .modal6-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .modal6-buttons button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .modal6-buttons button[type="button"] {
+    background-color: #f44336;
+    color: white;
+  }
+  

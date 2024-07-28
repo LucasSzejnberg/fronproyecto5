@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Sidebar2.css';
-import Modal5 from './Modal5'; // Asegúrate de que este archivo exista y esté correctamente importado
+import Modal6 from './Modal6'; // Importa el Modal6
 
 interface SidebarProps {
   topButton1ImgSrc: string;
@@ -57,11 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       </button>
 
       {isModalOpen && (
-        <Modal5 onClose={closeModal}>
-          <div className="modal-content">
-            <p>Contenido del modal</p>
-          </div>
-        </Modal5>
+        <Modal6 onClose={closeModal} />
       )}
     </div>
   );

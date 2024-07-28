@@ -3,9 +3,7 @@ import Sidebar3 from './components/Sidebar3';
 import Banner2 from './components/Banner2';
 import SearchBanner3 from './components/SearchBanner3';
 import RequestTurnos1 from './components/RequestTurnos1';
-let x=React;
-let r=x;
-x=r;
+
 const HistoriaClinica = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -19,7 +17,7 @@ const HistoriaClinica = () => {
         sidebarImgSrc="/LogoVertical.png"
       />
       <SearchBanner3 imgSrc="/VerHistorial.png" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <RequestTurnos1></RequestTurnos1>
+      <RequestTurnos1 searchTerm={searchTerm} />
     </div>
   );
 };
