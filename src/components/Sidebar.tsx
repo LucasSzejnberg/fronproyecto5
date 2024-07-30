@@ -48,7 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <img src={topButton2ImgSrc} alt="Button 2" className="btn-img" />
       </button>
       <button className="sidebar-btn" onClick={handleTurnosButtonClick}>
-        <img src={"./tresPuntitos.png"} alt="Turnos" className="btn-img" />
+        <img src={"./botonturnos.png"} alt="Turnos" className="btn-img" />
       </button>
       <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
       

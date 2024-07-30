@@ -20,7 +20,7 @@ a=b;
         bottomButtonImgSrc="/HistorialNuevoBoton.png"
         sidebarImgSrc="/LogoVertical.png"
       />
-      <SearchBanner3 imgSrc="/VerHistorial.png" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <SearchBanner3 imgSrc="/Visualizarturnos.png" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <RequestTurnos1 searchTerm={searchTerm} />
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import './SearchBanner.css';
+import './SearchBanner3.css';
 
 interface SearchBannerProps {
   imgSrc: string;
@@ -10,7 +10,7 @@ interface SearchBannerProps {
 const SearchBanner2: React.FC<SearchBannerProps> = ({ imgSrc, searchTerm, setSearchTerm }) => {
   return (
     <div className="search-banner3">
-      <img src={imgSrc} alt="Banner Icon" className="banner-img2" />
+      <img src={imgSrc} alt="Banner Icon" className="banner-img22" />
       <input 
         type="text" 
         placeholder="Buscar..." 

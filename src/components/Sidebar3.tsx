@@ -45,15 +45,15 @@ const Sidebar: React.FC<SidebarProps> = ({
         <img src={topButton1ImgSrc} alt="Button 1" className="btn-img" />
       </button>
       <button className="sidebar-btn" onClick={handleButton2Click}>
-        <img src={topButton2ImgSrc} alt="Button 2" className="btn-img" />
+        <img src={"./BotonHistoriaClinica.png"} alt="Button 2" className="btn-img" />
       </button>
       <button className="sidebar-btn" onClick={handleTurnosButtonClick}>
-        <img src={"./tresPuntitos.png"} alt="Turnos" className="btn-img" />
+        <img src={"./turnosactivos.png"} alt="Turnos" className="btn-img" />
       </button>
       <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
 
       <button className="sidebar-btn" onClick={openModal}>
-        <img src={bottomButtonImgSrc} alt="Bottom 3" className="btn-img" />
+        <img src={"./turnonuevo.png"} alt="Bottom 3" className="btn-img" />
       </button>
 
       {isModalOpen && (

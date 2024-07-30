@@ -9,7 +9,7 @@ interface SearchBannerProps {
 
 const SearchBanner2: React.FC<SearchBannerProps> = ({ imgSrc, searchTerm, setSearchTerm }) => {
   return (
-    <div className="search-banner2">
+    <div className="search-banner27">
       <img src={imgSrc} alt="Banner Icon" className="banner-img2" />
       <input 
         type="text" 
