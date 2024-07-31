@@ -12,9 +12,9 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ 
   topButton1ImgSrc, 
-  topButton2ImgSrc, 
-  sidebarImgSrc, 
-  bottomButtonImgSrc,
+  
+  sidebarImgSrc
+ 
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
