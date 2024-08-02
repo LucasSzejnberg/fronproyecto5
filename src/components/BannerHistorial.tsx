@@ -9,7 +9,7 @@ interface BannerProps {
 const Banner: React.FC<BannerProps> = ({ logoSrc, altText = "Logo" }) => {
   return (
     <div className="banner1">
-      <img src={logoSrc} alt={altText} className="logo" />
+      <img src={logoSrc} alt={altText} className="logo30" />
     </div>
   );
 }
