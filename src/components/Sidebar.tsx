@@ -29,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   const handleButton1Click = () => {
-    navigate('/');
+    navigate('/estudios');
   };
 
   const handleButton2Click = () => {
@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <div className="sidebar">
-      <button className="sidebar-btn" onClick={handleButton1Click}>
+      <button className="sidebar-btn4444" onClick={handleButton1Click}>
         <img src={topButton1ImgSrc} alt="Button 1" className="btn-img" />
       </button>
       <button className="sidebar-btn" onClick={handleButton2Click}>
@@ -50,9 +50,9 @@ const Sidebar: React.FC<SidebarProps> = ({
       <button className="sidebar-btn" onClick={handleTurnosButtonClick}>
         <img src={"./botonturnos.png"} alt="Turnos" className="btn-img" />
       </button>
-      <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
+      <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img86" />
       
-      <button className="sidebar-btn" onClick={openModal}>
+      <button className="sidebar-btn44445" onClick={openModal}>
         <img src={bottomButtonImgSrc} alt="Bottom Button" className="btn-img" />
       </button>
       <Modal isOpen={isModalOpen} onClose={closeModal} />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Rectangulo from './Rectangulo';
-import SearchBanner from './SearchBanner';
 
 const URL = "https://healthy-back.vercel.app";
 
@@ -14,11 +13,14 @@ interface Estudio {
   id_usuarios: number;
 }
 
-const RequestEstudios: React.FC = () => {
+interface RequestEstudiosProps {
+  searchTerm: string;
+}
+
+const RequestEstudios: React.FC<RequestEstudiosProps> = ({ searchTerm }) => {
   const [estudios, setEstudios] = useState<Estudio[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchEstudios = async () => {
     try {
@@ -52,17 +54,14 @@ const RequestEstudios: React.FC = () => {
     estudio.tipo_estudios.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
+  let a=loading;
+  let b=a;
+  a=b;
+  let aa=error;
+  let bb=aa;
+  aa=bb;
   return (
-    <div>
-      <SearchBanner imgSrc="/ImgEstudios.png" onSearch={setSearchTerm} />
+    <div className="request-estudios-container">
       <div className="grilla">
         {filteredEstudios.map(estudio => (
           <Rectangulo

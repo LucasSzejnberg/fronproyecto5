@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Modal.css';
 
-
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -36,37 +35,28 @@ async function uploadFileAndGetResult(file: File): Promise<string> {
   }
 }
 
-
-
-
 const handleButton3Click = async (url: string, formData: FormData) => {
-
-  
-  
-
   try {
     console.log("Botón 3 fue clickeado");
     const response = await fetch(url, {
       method: 'POST',
       body: formData
     });
-    console.log(response);
+    console.log('Respuesta del servidor:', response);
 
     if (response.ok) {
       const responseData = await response.json();
-      console.log( responseData);
-
+      console.log('Datos de respuesta:', responseData);
       return true; // Indica que la solicitud fue exitosa
     } else {
       const errorData = await response.json();
-      throw new Error(`Error en la solicitud POST: ${response.status} ${response.statusText}: ${errorData.message}`);
+      console.error(`Error en la solicitud POST: ${response.status} ${response.statusText}: ${errorData.message}`);
+      return false;
     }
   } catch (error) {
     console.error('Error en la solicitud POST:', error);
     return false; // Indica que la solicitud falló
   }
-  
-  
 };
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
@@ -97,7 +87,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       console.error('No file selected');
       return;
     }
-    const a= await uploadFileAndGetResult(selectedFile);
+    const a = await uploadFileAndGetResult(selectedFile);
 
     const formData = new FormData();
     const currentDate = new Date(fecha).toISOString().split('T')[0]; // Convertir la fecha ingresada a formato ISO
@@ -113,10 +103,14 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       console.log(pair[0], pair[1]);
     }
 
-    await handleButton3Click("https://healthy-back.vercel.app/estudio", formData);
-    //window.location.reload();
+    const isSuccessful = await handleButton3Click("https://healthy-back.vercel.app/estudio", formData);
+    console.log('Solicitud exitosa:', isSuccessful);
 
-    
+    console.log('Esperando 10 segundos antes de recargar la página...');
+    setTimeout(() => {
+      console.log('Recargando página...');
+      window.location.reload();
+    }, 10000);
   };
 
   if (!isOpen) return null;
@@ -150,9 +144,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
       </div>
-      
     </div>
-     
   );
 }
 
