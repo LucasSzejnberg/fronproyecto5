@@ -34,7 +34,7 @@
     padding: 0 20px; /* Añade un poco de padding a los lados */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para separar visualmente */
     position: fixed;
-    margin-top: -6.5%;
+    margin-top: -5.5%;
   }
   .search-banner3 {
     width: 100%;
@@ -61,7 +61,7 @@
     margin-left: 225px;
     width: 35%;
     height: 60%;
-    margin-top: 0%;
+    margin-top: 1%;
   }
   
   .search-input {

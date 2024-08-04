@@ -19,7 +19,8 @@
 
 .modal-contenido {
   background-color: #FFF; /* Fondo blanco para el modal */
-  padding: 1%;
+  padding-top: 0.6%;
+  padding-left: 0.4%;
   border-radius: 4%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
   margin-left: 55%;

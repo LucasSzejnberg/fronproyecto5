@@ -40,14 +40,31 @@
     margin-top: 10px;
   }
   
+  .sidebar-btn6132 {
+    width: 100%;
+    padding: 0; /* Sin padding para que la imagen ocupe todo el botón */
+    border: none; /* Sin borde */
+    background-color: transparent; /* Fondo transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    outline: none; /* Sin contorno */
+    margin-top: 10.2%;
+  }
   .sidebar-btn img.btn-img {
+    width: 80%; /* La imagen ocupa todo el botón */
+    height: auto;
+  }
+  .sidebar-btn6132 img.btn-img {
     width: 80%; /* La imagen ocupa todo el botón */
     height: auto;
   }
   
   .sidebar-img {
     width: 70%;
-    height: 3.5%;
+    height: 2.5%;
     margin-bottom: 30px;
     margin-left: 15%;
   }
