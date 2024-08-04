@@ -19,7 +19,9 @@ const HistoriaClinica = () => {
         sidebarImgSrc="/LogoVertical.png"
       />
       <SearchBanner2 imgSrc="/VerHistorial.png" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <RequestHistorial searchTerm={searchTerm} />
+      <div style={{ marginTop: '0%' }}>
+        <RequestHistorial searchTerm={searchTerm} />
+      </div>
     </div>
   );
 };

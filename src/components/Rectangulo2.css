@@ -4,7 +4,7 @@
     margin-left: 20%;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    column-gap: 10%;
     
   }
   
@@ -17,7 +17,8 @@
     
     justify-content: space-between;
     padding: 10px;
-    margin: 10px;
+    margin: 0%;
+    margin-top: 5%;
   }
   
   .rectangulo2-content {
