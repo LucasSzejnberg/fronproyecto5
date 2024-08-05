@@ -1,31 +1,29 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import './Casa.css';
 
 const Casa: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleRegistrarClick = () => {
-    navigate('/registrar');
+  const handleRegister = () => {
+    navigate('/registrarse');
   };
 
-  const handleIniciarSesionClick = () => {
-    navigate('/iniciar-sesion');
+  const handleLogin = () => {
+    navigate('/iniciar');
   };
 
   return (
-    <div className="container">
-      <div className="franja amarilla"></div>
-      <div className="franja gris">
-        <img src="/path/to/image.png" alt="Imagen Central" className="imagen-central" />
+    <div className="casa">
+      <div className="franja superior">
+        {/* Contenido de la franja superior */}
       </div>
-      <div className="franja negra">
-        <button className="button" onClick={handleRegistrarClick}>
-          <img src="/path/to/botonRegistrar.png" alt="Registrar" />
-        </button>
-        <button className="button" onClick={handleIniciarSesionClick}>
-          <img src="/path/to/botonIniciarSesion.png" alt="Iniciar Sesión" />
-        </button>
+      <div className="franja media">
+        <img src="logo.png" alt="Descripción de la imagen" />
+      </div>
+      <div className="franja inferior">
+        <button onClick={handleRegister}>Registrarse</button>
+        <button onClick={handleLogin}>Iniciar Sesión</button>
       </div>
     </div>
   );
