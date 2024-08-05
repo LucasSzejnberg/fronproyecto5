@@ -12,7 +12,7 @@
   
   .logo30 {
     margin-top: 1.3%;
-    max-width: 80%; /* Ajustar el tamaño del logo */
-    max-height: 67%; /* Ajustar el tamaño del logo */
+    max-width: 20%; /* Ajustar el tamaño del logo */
+    height: auto; /* Ajustar el tamaño del logo */
   }
   

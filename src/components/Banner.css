@@ -23,7 +23,12 @@
   }
 
   .logo {
-    max-width: 77%; /* Ajustar el tamaño del logo */
-    max-height: 75%; /* Ajustar el tamaño del logo */
+    max-width: 20%; /* Ajustar el tamaño del logo */
+    height: auto; /* Ajustar el tamaño del logo */
+  }
+  .logo7310 {
+    width: 20%; /* Ajustar el tamaño del logo */
+    height: auto; /* Ajustar el tamaño del logo */
+    margin-top: 1.5%;
   }
   
