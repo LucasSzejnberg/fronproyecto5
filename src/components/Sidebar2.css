@@ -1,6 +1,6 @@
 .sidebar2 {
-    width: 200px;
-    height: 1100vh; /* Altura completa de la ventana */
+    width: 17vw;
+    height: 100vw; /* Altura completa de la ventana */
     background-color: #5C5B5B; /* Color de fondo gris */
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
     cursor: pointer;
     margin-bottom: 10px;
     outline: none; /* Sin contorno */
-    margin-top: 0;
+    margin-top: 0px;
   }
   .sidebar-btn6162 {
     width: 100%;
@@ -51,7 +51,7 @@
     cursor: pointer;
     margin-bottom: 10px;
     outline: none; /* Sin contorno */
-    margin-top: 10.2%;
+    margin-top: 2.5vw;
   }
   .sidebar-btn img.btn-img {
     width: 80%; /* La imagen ocupa todo el botón */
@@ -64,7 +64,7 @@
   
   .sidebar-img {
     width: 70%;
-    height: 2.5%;
+    height: 10.5vw;
     margin-bottom: 30px;
     margin-left: 15%;
   }

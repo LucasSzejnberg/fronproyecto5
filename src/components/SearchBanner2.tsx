@@ -14,7 +14,7 @@ const SearchBanner2: React.FC<SearchBannerProps> = ({ imgSrc, searchTerm, setSea
       <input 
         type="text" 
         placeholder="Buscar..." 
-        className="search-input" 
+        className="search-input550" 
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />

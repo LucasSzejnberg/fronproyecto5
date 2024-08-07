@@ -11,14 +11,14 @@
   }
   
   .banner2 {
-    width: 100%;
-    height: 27%; /* Puedes ajustar la altura según tus necesidades */
+    width: 100vw;
+    height: 11vw; /* Puedes ajustar la altura según tus necesidades */
     background-color: #EEB573; /* Color amarillo */
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
-    margin-top: -20%;
+    margin-top: -17.75vw;
     z-index: 10000000;
   }
 
@@ -27,8 +27,8 @@
     height: auto; /* Ajustar el tamaño del logo */
   }
   .logo7310 {
-    width: 20%; /* Ajustar el tamaño del logo */
+    width: 17vw; /* Ajustar el tamaño del logo */
     height: auto; /* Ajustar el tamaño del logo */
-    margin-top: 1.5%;
+  
   }
   
