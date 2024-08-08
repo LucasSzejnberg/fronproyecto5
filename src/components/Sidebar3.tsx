@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <div className="sidebar2">
-      <button className="sidebar-btn4444" onClick={handleButton1Click}>
+      <button className="sidebar-btn6132" onClick={handleButton1Click}>
         <img src={topButton1ImgSrc} alt="Button 1" className="btn-img" />
       </button>
       <button className="sidebar-btn" onClick={handleButton2Click}>
@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       </button>
       <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
 
-      <button className="sidebar-btn" onClick={openModal}>
+      <button className="sidebar-btn4321" onClick={openModal}>
         <img src={"./turnonuevo.png"} alt="Bottom 3" className="btn-img6162" />
       </button>
 
