@@ -11,29 +11,57 @@
 }
 
 .franja.superior, .franja.inferior {
-  flex: 0.3;
-  
+  flex: 0.15;
 }
-.franja.superior{
-  background-color: #EEB573
+.olvidatemas{
+  width: 16vw;
+  height: auto;
+}
+.franja.superior {
+  background-color: #EEB573;
+}
 
+.franja.inferior {
+  background-color: #5C5B5B;
 }
-.franja.inferior{
-  background-color: #5C5B5B
-}
+
 .franja.media {
   flex: 1;
   background-color: #D9D9D9;
 }
 
-.franja.media img {
-  width: 40%;
-  height: auto;
-}
+
 
 .franja.inferior button {
   margin: 0 10px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  color: white;
+}
+
+.franja.inferior .button-icon {
+  margin-right: 8px; /* Espacio entre la imagen y el texto */
+  width: 20px; /* Ajusta el tamaño según sea necesario */
+  height: 20px; /* Ajusta el tamaño según sea necesario */
+}
+
+.btn-transparent {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+ 
+  
+}
+.button-icon61 {
+  height: 4.5vw;
+}
+.btn-transparent:hover {
+  opacity: 0.8; /* Efecto visual al pasar el cursor sobre el botón */
 }

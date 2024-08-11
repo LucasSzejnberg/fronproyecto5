@@ -4,7 +4,7 @@ import HistoriaClinica from './HistoriaClinica';
 import Estudios from './Estudios';
 import Pagturnos from './Pagturnos'; // Importar el nuevo componente
 import Casa from "./Casa";
-
+import Registro from "./Registro";
 function App() {
   return (
     <Routes>
@@ -12,6 +12,7 @@ function App() {
       <Route path="/historia-clinica" element={<HistoriaClinica />} />
       <Route path="/turnos" element={<Pagturnos />} /> {/* Nueva ruta */}
       <Route path="/casa" element={<Casa />} />
+      <Route path="/registro" element={<Registro />} />
     </Routes>
   );
 }

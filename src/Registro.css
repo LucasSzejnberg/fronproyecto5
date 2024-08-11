@@ -1,0 +1,75 @@
+.registro {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .franja {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .franja.superior, .franja.inferior {
+    flex: 0.20;
+  }
+  
+  .franja.superior {
+    background-color: #EEB573;
+  }
+  
+  .franja.inferior {
+    background-color: #5C5B5B;
+  }
+  
+  .franja.media {
+    flex: 1;
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .franja.media .registro-imagen {
+    width: 22vw;
+    height: auto;
+   margin-bottom: 1.5vw;
+   
+  }
+  
+  .franja.media .registro-input {
+   
+    height: 2.5vw; /* Ajusta la altura de la barra de búsqueda */
+    width: 25vw;
+    padding: 0 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+   
+    border-radius: 10px;
+   
+    font-family: "Noticia Text", serif;
+  font-weight: 400;
+  font-style: normal;
+ margin-bottom: 0.5vw;
+  }
+  
+  .franja.media .registro-boton {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .franja.media .registro-boton .boton-icono {
+    margin-right: 8px; /* Espacio entre la imagen y el texto */
+    width: 20px; /* Ajusta el tamaño según sea necesario */
+    height: 20px; /* Ajusta el tamaño según sea necesario */
+  }
+  .boton-icono818{
+    width: 10vw;
+    height: auto;
+  }
+  
