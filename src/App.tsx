@@ -5,6 +5,7 @@ import Estudios from './Estudios';
 import Pagturnos from './Pagturnos'; // Importar el nuevo componente
 import Casa from "./Casa";
 import Registro from "./Registro";
+import Inicio from "./Inicio";
 function App() {
   return (
     <Routes>
@@ -13,6 +14,7 @@ function App() {
       <Route path="/turnos" element={<Pagturnos />} /> {/* Nueva ruta */}
       <Route path="/casa" element={<Casa />} />
       <Route path="/registro" element={<Registro />} />
+      <Route path="/iniciar" element={<Inicio />} />
     </Routes>
   );
 }
