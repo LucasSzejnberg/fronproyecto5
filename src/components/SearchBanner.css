@@ -2,15 +2,15 @@
 
 
 .search-banner {
-    width: 100%;
-    height: 80px; /* Ajusta la altura según tus necesidades */
+    width: 100vw;
+    height: 6vw; /* Ajusta la altura según tus necesidades */
     background-color: #D9D9D9; /* Fondo blanco */
     display: flex;
     align-items: center;
     padding: 0 20px; /* Añade un poco de padding a los lados */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para separar visualmente */
     position: fixed;
-    margin-top: -5%;
+    margin-top: -7.05vw;
   }
   
   .search-banner2 {
@@ -34,7 +34,7 @@
     padding: 0 20px; /* Añade un poco de padding a los lados */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para separar visualmente */
     position: fixed;
-    margin-top: -4vw;
+    margin-top: -6vw;
   }
   .search-banner3 {
     width: 100vw;
@@ -47,51 +47,42 @@
     position: fixed;
     margin-top:-6.99vw;
   }
-  .banner-img {
-    height: 20%; /* Ajusta el tamaño de la imagen */
-    margin-right: 0px; /* Espacio entre la imagen y la barra de búsqueda */
-    margin-left: 225px;
-    width: 35%;
-    height: 30%;
-    margin-top: 1%;
-  }
-  .banner-img2 {
-    margin-right: 0px; /* Espacio entre la imagen y la barra de búsqueda */
+  
+  .banner-img202 {
     margin-left: 18vw;
-    width: 35vw;
-    height: 4vw;
-    margin-top: 0%;
+
+   
+ 
+    font-size: 50px;
+ 
+   align-self: center;
+    
+  user-select: none;
+    font-family: "Noticia Text", serif;
+  font-weight: 400;
+  font-style: normal;
+ 
   }
   
-  .search-input {
+  .search-input99901 {
+    display: flex;
+    justify-self: flex-end; 
+    margin-left: auto;
     flex-grow: 1;
-    height: 40px; /* Ajusta la altura de la barra de búsqueda */
+    max-width: 30vw;
+    height: 3.5vw; /* Ajusta la altura de la barra de búsqueda */
     padding: 0 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-left: 220px;
+    
     border-radius: 10px;
     margin-right: 50px;
     font-family: "Noticia Text", serif;
   font-weight: 400;
   font-style: normal;
   margin-top: 0%;
-  }
+ 
 
-  .search-input550 {
-    flex-grow: 1;
-    height: 3vw; /* Ajusta la altura de la barra de búsqueda */
-    padding: 0 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-left: 220px;
-    border-radius: 10px;
-    margin-right: 50px;
-    font-family: "Noticia Text", serif;
-  font-weight: 400;
-  font-style: normal;
-  margin-top: 0%;
   }
   

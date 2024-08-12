@@ -7,14 +7,14 @@ interface SearchBannerProps {
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchBanner2: React.FC<SearchBannerProps> = ({ imgSrc, searchTerm, setSearchTerm }) => {
+const SearchBanner2: React.FC<SearchBannerProps> = ({  searchTerm, setSearchTerm }) => {
   return (
     <div className="search-banner27">
-      <img src={imgSrc} alt="Banner Icon" className="banner-img2" />
+      <div className="banner-img202">HISTORIAL MEDICO</div>
       <input 
         type="text" 
         placeholder="Buscar..." 
-        className="search-input550" 
+        className="search-input99901" 
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />

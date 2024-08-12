@@ -1,6 +1,6 @@
 /* Estilos para RequestHistorial y Rectangulo2 */
 .historial-container {
-    margin-top: 15%;
+    margin-top: 17vw;
     margin-left: 20%;
     display: flex;
     flex-wrap: wrap;
@@ -18,7 +18,7 @@
     justify-content: space-between;
     padding: 10px;
     margin: 0%;
-    margin-top: 5%;
+    margin-top: 2vw;
   }
   
   .rectangulo2-content {
