@@ -13,7 +13,6 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ 
   topButton1ImgSrc, 
   
-  sidebarImgSrc
  
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <button className="sidebar-btn" onClick={handleTurnosButtonClick}>
         <img src={"./turnosactivos.png"} alt="Turnos" className="btn-img" />
       </button>
-      <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
+   
 
       <button className="sidebar-btn4321" onClick={openModal}>
         <img src={"./turnonuevo.png"} alt="Bottom 3" className="btn-img6162" />

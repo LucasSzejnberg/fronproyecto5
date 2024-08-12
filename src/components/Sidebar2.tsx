@@ -14,7 +14,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ 
   topButton1ImgSrc, 
   topButton2ImgSrc, 
-  sidebarImgSrc, 
+ 
   bottomButtonImgSrc,
 
 }) => {
@@ -52,12 +52,10 @@ const Sidebar: React.FC<SidebarProps> = ({
       <button className="sidebar-btn" onClick={handleTurnosButtonClick}>
         <img src={"./botonturnos.png"} alt="Turnos" className="btn-img" />
       </button>
-      <img src={sidebarImgSrc} alt="Sidebar" className="sidebar-img" />
-
       
 
-      <button className="sidebar-btn" onClick={openModal}>
-        <img src={bottomButtonImgSrc} alt="Bottom 3" className="btn-img" />
+      <button className="sidebar-btn4321" onClick={openModal}>
+        <img src={bottomButtonImgSrc} alt="Bottom 3" className="btn-img6162" />
       </button>
       <Modal2 isOpen={isModalOpen} onClose={closeModal} />
     </div>
