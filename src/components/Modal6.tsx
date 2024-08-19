@@ -9,7 +9,6 @@ interface Modal6Props {
 const Modal6: React.FC<Modal6Props> = ({ onClose }) => {
   const [fecha, setFecha] = useState('');
   const [medico, setMedico] = useState('');
-  const [paciente, setPaciente] = useState('');
   const [hora, setHora] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -18,8 +17,7 @@ const Modal6: React.FC<Modal6Props> = ({ onClose }) => {
       const response = await axios.post('https://healthy-back.vercel.app/turnos', {
         fecha,
         medico,
-        paciente,
-        hora
+        hora, 
       });
       console.log('Datos enviados:', response.data);
       onClose(); // Cerrar el modal después de enviar los datos
@@ -31,42 +29,37 @@ const Modal6: React.FC<Modal6Props> = ({ onClose }) => {
   return (
     <div className="modal6-overlay" onClick={onClose}>
       <div className="modal6-container" onClick={(e) => e.stopPropagation()}>
+        {/* Imagen agregada arriba de todo */}
+        <img src="NUEVO TURNO.png" alt="Imagen descriptiva" className="modal6-image" />
+
         <form onSubmit={handleSubmit}>
-          <label>
-            Fecha:
-            <input 
-              type="date" 
-              value={fecha} 
-              onChange={(e) => setFecha(e.target.value)} 
-            />
-          </label>
-          <label>
-            Médico:
-            <input 
-              type="text" 
-              value={medico} 
-              onChange={(e) => setMedico(e.target.value)} 
-            />
-          </label>
-          <label>
-            Paciente:
-            <input 
-              type="text" 
-              value={paciente} 
-              onChange={(e) => setPaciente(e.target.value)} 
-            />
-          </label>
-          <label>
-            Hora:
-            <input 
-              type="time" 
-              value={hora} 
-              onChange={(e) => setHora(e.target.value)} 
-            />
-          </label>
+          <input className="input010101"
+            type="date" 
+            placeholder="Fecha"
+            value={fecha} 
+            onChange={(e) => setFecha(e.target.value)} 
+          />
+          <input className="input0101011"
+            type="time" 
+            placeholder="Hora"
+            value={hora} 
+            onChange={(e) => setHora(e.target.value)} 
+          />
+          <input className="input0101011"
+            type="text" 
+            placeholder="Médico"
+            value={medico} 
+            onChange={(e) => setMedico(e.target.value)} 
+          />
           <div className="modal6-buttons">
-            <button type="submit">Enviar</button>
-            <button type="button" onClick={onClose}>Cancelar</button>
+            {/* Botón Enviar con imagen */}
+            <button type="submit" className="button-with-image">
+              <img src="/BotonCrear.png" alt="Enviar" />
+            </button>
+            {/* Botón Cancelar con imagen */}
+            <button type="button" className="button-with-image" onClick={onClose}>
+              <img src="/BotonCancelar.png" alt="Cancelar" />
+            </button>
           </div>
         </form>
       </div>
