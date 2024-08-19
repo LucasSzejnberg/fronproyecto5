@@ -6,6 +6,8 @@ import Pagturnos from './Pagturnos'; // Importar el nuevo componente
 import Casa from "./Casa";
 import Registro from "./Registro";
 import Inicio from "./Inicio";
+import Perfil from "./Perfil";
+
 function App() {
   return (
     <Routes>
@@ -15,6 +17,8 @@ function App() {
       <Route path="/casa" element={<Casa />} />
       <Route path="/registro" element={<Registro />} />
       <Route path="/iniciar" element={<Inicio />} />
+      <Route path="/perfil" element={<Perfil />} />
+
     </Routes>
   );
 }

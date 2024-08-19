@@ -20,7 +20,7 @@ function Estudios() {
         bottomButtonImgSrc="/BotonSubirEstudio.png"
         sidebarImgSrc="/LogoVertical.png"
       />
-      <SearchBanner imgSrc="/ImgEstudios.png" onSearch={setSearchTerm} />
+      <SearchBanner  onSearch={setSearchTerm} />
       <RequestEstudios searchTerm={searchTerm} />
     </div>
   );

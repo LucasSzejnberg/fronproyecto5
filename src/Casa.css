@@ -13,6 +13,9 @@
 .franja.superior, .franja.inferior {
   flex: 0.15;
 }
+.franja.superior1, .franja.inferior1 {
+  flex: 0.25;
+}
 .olvidatemas{
   width: 16vw;
   height: auto;
