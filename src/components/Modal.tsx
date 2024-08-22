@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Modal.css';
+import FormElectro from './FormElectro'; // Asegúrate de que la ruta sea correcta
 
 interface ModalProps {
   isOpen: boolean;
@@ -62,6 +63,7 @@ const handleButton3Click = async (url: string, formData: FormData) => {
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [fecha, setFecha] = useState<string>('');
+  const [showFormElectro, setShowFormElectro] = useState(false); // Estado para controlar la visibilidad del formulario
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -88,6 +90,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       return;
     }
     const a = await uploadFileAndGetResult(selectedFile);
+
+    if (a === "electrocardiograma") {
+      setShowFormElectro(true); // Mostrar el formulario `FormElectro` si la respuesta es "electrocardiograma"
+      return; // Evitar la ejecución posterior
+    }
 
     const formData = new FormData();
     const currentDate = new Date(fecha).toISOString().split('T')[0]; // Convertir la fecha ingresada a formato ISO
@@ -144,6 +151,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
       </div>
+      {showFormElectro && (
+        <div className="modal-overlay">
+          <div className="modal-contenido" onClick={(e) => e.stopPropagation()}>
+            {/* <FormElectro /> */}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
