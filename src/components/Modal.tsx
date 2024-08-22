@@ -92,8 +92,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     const a = await uploadFileAndGetResult(selectedFile);
 
     if (a === "electrocardiograma") {
-      setShowFormElectro(true); // Mostrar el formulario `FormElectro` si la respuesta es "electrocardiograma"
-      return; // Evitar la ejecución posterior
+      
     }
 
     const formData = new FormData();
@@ -151,13 +150,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
       </div>
-      {showFormElectro && (
-        <div className="modal-overlay">
-          <div className="modal-contenido" onClick={(e) => e.stopPropagation()}>
-            {/* <FormElectro /> */}
-          </div>
-        </div>
-      )}
+     
     </div>
   );
 }
