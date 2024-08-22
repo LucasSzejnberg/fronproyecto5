@@ -1,12 +1,15 @@
+// Inicio.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Registro.css';
 import './Casa.css';
+import { useGlobalContext } from './GlobalContext';
 
 const Inicio: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setResult } = useGlobalContext(); // Obtener el setter del contexto global
 
   const handleLogin = async () => {
     try {
@@ -15,16 +18,21 @@ const Inicio: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ mail: email, password: password }),
+        body: JSON.stringify({ name: email, password: password }),
       });
 
-      const result = await response.text(); // Cambiamos a .text() en lugar de .json()
+      const result = await response.text(); 
 
-      if (result.includes('Login succesful')) {
-        navigate('/estudios');
-      } else {
+      if (result.includes('assword incorr') || result.includes('r not')) {
         console.debug('Contraseña incorrecta');
         console.debug(result);
+      } else {
+        console.debug(result);
+
+        // Guardar result en la variable global
+        setResult(result);
+        
+        navigate('/estudios');
       }
     } catch (error) {
       console.error('Error al iniciar sesión:', error);

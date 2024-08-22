@@ -23,7 +23,7 @@ const Registro: React.FC = () => {
       },
       body: JSON.stringify({
         mail: email,
-        nombre: nombre,
+        name: nombre,
         password: password,
       }),
     });
