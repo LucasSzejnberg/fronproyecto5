@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Modal.css';
-import FormElectro from './FormElectro'; // Asegúrate de que la ruta sea correcta
+import FormElectro from './FormElectro';
+
+let rst = 0;
 
 interface ModalProps {
   isOpen: boolean;
@@ -16,7 +18,7 @@ async function uploadFileAndGetResult(file: File): Promise<string> {
   formData.append('file', file);
 
   try {
-    const response = await fetch('https://hjuyhjiuhjdsadasda-healthy.hf.space/upload-image/', {
+    const response = await fetch('https://main-lahv.onrender.com/sz', {
       method: 'POST',
       body: formData,
     });
@@ -41,14 +43,14 @@ const handleButton3Click = async (url: string, formData: FormData) => {
     console.log("Botón 3 fue clickeado");
     const response = await fetch(url, {
       method: 'POST',
-      body: formData
+      body: formData,
     });
     console.log('Respuesta del servidor:', response);
 
     if (response.ok) {
       const responseData = await response.json();
       console.log('Datos de respuesta:', responseData);
-      return true; // Indica que la solicitud fue exitosa
+      return true;
     } else {
       const errorData = await response.json();
       console.error(`Error en la solicitud POST: ${response.status} ${response.statusText}: ${errorData.message}`);
@@ -56,14 +58,15 @@ const handleButton3Click = async (url: string, formData: FormData) => {
     }
   } catch (error) {
     console.error('Error en la solicitud POST:', error);
-    return false; // Indica que la solicitud falló
+    return false;
   }
 };
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [fecha, setFecha] = useState<string>('');
-  const [showFormElectro, setShowFormElectro] = useState(false); // Estado para controlar la visibilidad del formulario
+  const [showFormElectro, setShowFormElectro] = useState(false);
+  const [formElectroData, setFormElectroData] = useState<any>(null);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -89,22 +92,35 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       console.error('No file selected');
       return;
     }
+
     const a = await uploadFileAndGetResult(selectedFile);
 
-    if (a === "electrocardiograma") {
-      
+    // Mostrar el formulario Electro si el archivo es un electrocardiograma
+    if (rst === 0) {
+      console.log("a es igual a ", a);
+
+      if (a === 'Upload successful: "electrocardiograma"') {
+        console.log("entra a electro la concha de mi vieja");
+        setShowFormElectro(true);
+        rst = 1; // Indicamos que ya se ha mostrado el formulario
+        return;
+      }
     }
 
+    // Si ya se hizo el submit del FormElectro, proceder con el submit final
     const formData = new FormData();
-    const currentDate = new Date(fecha).toISOString().split('T')[0]; // Convertir la fecha ingresada a formato ISO
+    const currentDate = new Date(fecha).toISOString().split('T')[0];
     formData.append("date", currentDate);
     formData.append("tipo", a);
     formData.append("quien_subio", "hola");
     formData.append("usuario", "1");
     formData.append("file", selectedFile);
 
-    console.log('Datos a enviar:', formData);
-
+    if (formElectroData) {
+      formData.append("diccionarioElectro", JSON.stringify(formElectroData));
+    }
+    
+    console.log(formData);
     for (const pair of formData.entries()) {
       console.log(pair[0], pair[1]);
     }
@@ -116,7 +132,14 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     setTimeout(() => {
       console.log('Recargando página...');
       window.location.reload();
-    }, 10000);
+    }, 15000);
+  };
+
+  const handleFormElectroSubmit = (data: any) => {
+    console.log('Datos recibidos del FormElectro:', data);
+    setFormElectroData(data);
+    setShowFormElectro(false); // Ocultar el formulario después de enviar
+    handleSubmit(); // Continuar con el flujo del modal
   };
 
   if (!isOpen) return null;
@@ -129,28 +152,35 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <img src="/ImgNuevoEstudio.png" alt="Photo" className="modal-photo" />
           </div>
           <div className="modal-body">
-            <input
-              type="date"
-              placeholder="Fecha..."
-              className="modal-input"
-              value={fecha}
-              onChange={handleInputChange}
-            />
+            {showFormElectro ? (
+              <FormElectro onSubmit={handleFormElectroSubmit} />
+            ) : (
+              <>
+                <input
+                  type="date"
+                  placeholder="Fecha..."
+                  className="modal-input"
+                  value={fecha}
+                  onChange={handleInputChange}
+                />
+              </>
+            )}
           </div>
-          <div className="modal-footer1">
-            <button className="modal-button-button11" onClick={handleButton11Click}>
-              <img src="/BotonArchivo.png" alt="Button 1" className="modal-button-image1" />
-            </button>
-            <button className="modal-button-button22" onClick={onClose}>
-              <img src="/BotonCancelar.png" alt="Button 2" className="modal-button-image" />
-            </button>
-            <button className="modal-button-button23" onClick={handleSubmit}>
-              <img src="/BotonCrear.png" alt="Button 3" className="modal-button-image" />
-            </button>
-          </div>
+          {!showFormElectro && (
+            <div className="modal-footer1">
+              <button className="modal-button-button11" onClick={handleButton11Click}>
+                <img src="/BotonArchivo.png" alt="Button 1" className="modal-button-image1" />
+              </button>
+              <button className="modal-button-button22" onClick={onClose}>
+                <img src="/BotonCancelar.png" alt="Button 2" className="modal-button-image" />
+              </button>
+              <button className="modal-button-button23" onClick={handleSubmit}>
+                <img src="/BotonCrear.png" alt="Button 3" className="modal-button-image" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
-     
     </div>
   );
 }

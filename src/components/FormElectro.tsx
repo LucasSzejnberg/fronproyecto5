@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-function Form() {
+
+interface FormElectroProps {
+  onSubmit: (data: any) => void;
+}
+
+const FormElectro: React.FC<FormElectroProps> = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [apellido, setApellido] = useState("");
   const [edad, setEdad] = useState("");
@@ -12,11 +17,31 @@ function Form() {
   const [dislipemia, setDislipemia] = useState("");
   const [fumador, setFumador] = useState("");
   const [creatinina, setCreatinina] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const formData = {
+      name,
+      apellido,
+      edad,
+      dni,
+      sexo,
+      peso,
+      altura,
+      hta,
+      diabetes,
+      dislipemia,
+      fumador,
+      creatinina,
+    };
+    onSubmit(formData);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         value={name}
-        onChange={e => setName(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
         placeholder="First name"
         type="text"
         name="name"
@@ -24,7 +49,7 @@ function Form() {
       />
       <input
         value={apellido}
-        onChange={e => setApellido(e.target.value)}
+        onChange={(e) => setApellido(e.target.value)}
         placeholder="Last name"
         type="text"
         name="apellido"
@@ -32,7 +57,7 @@ function Form() {
       />
       <input
         value={edad}
-        onChange={e => setEdad(e.target.value)}
+        onChange={(e) => setEdad(e.target.value)}
         placeholder="Age"
         type="number"
         name="edad"
@@ -40,7 +65,7 @@ function Form() {
       />
       <input
         value={dni}
-        onChange={e => setDni(e.target.value)}
+        onChange={(e) => setDni(e.target.value)}
         placeholder="DNI"
         type="text"
         name="dni"
@@ -48,7 +73,7 @@ function Form() {
       />
       <input
         value={sexo}
-        onChange={e => setSexo(e.target.value)}
+        onChange={(e) => setSexo(e.target.value)}
         placeholder="Gender"
         type="text"
         name="sexo"
@@ -56,7 +81,7 @@ function Form() {
       />
       <input
         value={peso}
-        onChange={e => setPeso(e.target.value)}
+        onChange={(e) => setPeso(e.target.value)}
         placeholder="Weight"
         type="number"
         name="peso"
@@ -64,7 +89,7 @@ function Form() {
       />
       <input
         value={altura}
-        onChange={e => setAltura(e.target.value)}
+        onChange={(e) => setAltura(e.target.value)}
         placeholder="Height"
         type="number"
         name="altura"
@@ -72,7 +97,7 @@ function Form() {
       />
       <input
         value={hta}
-        onChange={e => setHta(e.target.value)}
+        onChange={(e) => setHta(e.target.value)}
         placeholder="Hypertension"
         type="text"
         name="hta"
@@ -80,7 +105,7 @@ function Form() {
       />
       <input
         value={diabetes}
-        onChange={e => setDiabetes(e.target.value)}
+        onChange={(e) => setDiabetes(e.target.value)}
         placeholder="Diabetes"
         type="text"
         name="diabetes"
@@ -88,7 +113,7 @@ function Form() {
       />
       <input
         value={dislipemia}
-        onChange={e => setDislipemia(e.target.value)}
+        onChange={(e) => setDislipemia(e.target.value)}
         placeholder="Dyslipidemia"
         type="text"
         name="dislipemia"
@@ -96,7 +121,7 @@ function Form() {
       />
       <input
         value={fumador}
-        onChange={e => setFumador(e.target.value)}
+        onChange={(e) => setFumador(e.target.value)}
         placeholder="Smoker"
         type="text"
         name="fumador"
@@ -104,7 +129,7 @@ function Form() {
       />
       <input
         value={creatinina}
-        onChange={e => setCreatinina(e.target.value)}
+        onChange={(e) => setCreatinina(e.target.value)}
         placeholder="Creatinine"
         type="number"
         name="creatinina"
@@ -113,5 +138,6 @@ function Form() {
       <button type="submit">Submit</button>
     </form>
   );
-}
-export default Form;
+};
+
+export default FormElectro;
