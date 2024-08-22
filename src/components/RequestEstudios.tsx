@@ -30,7 +30,8 @@ const RequestEstudios: React.FC<RequestEstudiosProps> = ({ searchTerm }) => {
   ba=an;
   let oa=ra;
   ra=oa;
-  
+  console.log(token);
+
   const fetchEstudios = async () => {
     try {
       const response = await fetch(URL + '/estudios', {

@@ -17,19 +17,32 @@ interface RequestTurnos1Props {
 
 const RequestTurnos1: React.FC<RequestTurnos1Props> = ({ searchTerm }) => {
   const [turnos, setTurnos] = useState<Turno[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchTurnos = async () => {
       try {
         const response = await axios.get('https://healthy-back.vercel.app/turnos');
-        setTurnos(response.data);
+        
+        // Verificar si la respuesta es un array
+        if (Array.isArray(response.data)) {
+          setTurnos(response.data);
+        } else {
+          console.error('La respuesta no es un array:', response.data);
+          setError('Error: los datos recibidos no son válidos.');
+        }
       } catch (error) {
         console.error('Error fetching turnos:', error);
+        setError('Error al obtener los turnos');
       }
     };
 
     fetchTurnos();
   }, []);
+
+  if (error) {
+    return <div>{error}</div>; // Mostrar mensaje de error si lo hay
+  }
 
   const filteredTurnos = turnos
     .filter(turno =>
