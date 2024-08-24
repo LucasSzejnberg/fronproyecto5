@@ -8,13 +8,13 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
-
 
 const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [nombre, setNombre] = useState('');
   const [fecha, setFecha] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
+
 
   if (!isOpen) return null;
 
@@ -40,7 +40,6 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`, // Añade el token en los headers
-
         },
         body: JSON.stringify(data),
       });
