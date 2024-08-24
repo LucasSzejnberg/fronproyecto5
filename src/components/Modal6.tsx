@@ -10,16 +10,27 @@ const Modal6: React.FC<Modal6Props> = ({ onClose }) => {
   const [fecha, setFecha] = useState('');
   const [medico, setMedico] = useState('');
   const [hora, setHora] = useState('');
+  const token = localStorage.getItem('loginToken'); // Obtén el token del localStorage
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://healthy-back.vercel.app/turnos', {
-        fecha,
-        medico,
-        hora, 
-      });
+      const response = await axios.post(
+        'https://healthy-back.vercel.app/turnos',
+        {
+          fecha,
+          medico,
+          hora,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Incluye el token en los headers
+          },
+        }
+      );
       console.log('Datos enviados:', response.data);
+      console.log('Datos enviados:', response);
+
       onClose(); // Cerrar el modal después de enviar los datos
     } catch (error) {
       console.error('Error al enviar los datos:', error);
@@ -33,23 +44,26 @@ const Modal6: React.FC<Modal6Props> = ({ onClose }) => {
         <img src="NUEVO TURNO.png" alt="Imagen descriptiva" className="modal6-image" />
 
         <form onSubmit={handleSubmit}>
-          <input className="input010101"
-            type="date" 
+          <input
+            className="input010101"
+            type="date"
             placeholder="Fecha"
-            value={fecha} 
-            onChange={(e) => setFecha(e.target.value)} 
+            value={fecha}
+            onChange={(e) => setFecha(e.target.value)}
           />
-          <input className="input0101011"
-            type="time" 
+          <input
+            className="input0101011"
+            type="time"
             placeholder="Hora"
-            value={hora} 
-            onChange={(e) => setHora(e.target.value)} 
+            value={hora}
+            onChange={(e) => setHora(e.target.value)}
           />
-          <input className="input0101011"
-            type="text" 
+          <input
+            className="input0101011"
+            type="text"
             placeholder="Médico"
-            value={medico} 
-            onChange={(e) => setMedico(e.target.value)} 
+            value={medico}
+            onChange={(e) => setMedico(e.target.value)}
           />
           <div className="modal6-buttons">
             {/* Botón Enviar con imagen */}
