@@ -26,7 +26,9 @@ const RequestTurnos1: React.FC<RequestTurnos1Props> = ({ searchTerm }) => {
       try {
         const response = await axios.get('https://healthy-back.vercel.app/turnos', {
           headers: {
-            Authorization: `Bearer ${token}`, // Añade el token en los headers
+            'Content-Type': 'application/json',
+
+            "Authorization": `Bearer ${token}`, // Añade el token en los headers
           },
         });
 
