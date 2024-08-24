@@ -1,19 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import Rectangulo2 from './Rectangulo2';
 import './Rectangulo2.css';
+import { useGlobalContext } from '../GlobalContext'; // Importa el hook para usar el contexto
 
 interface RequestHistorialProps {
   searchTerm: string;
 }
 
 const RequestHistorial: React.FC<RequestHistorialProps> = ({ searchTerm }) => {
+  const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
   const [historialMedico, setHistorialMedico] = useState<any[]>([]); // Estado para almacenar el historial médico
 
   useEffect(() => {
     // Función para hacer la solicitud al historial médico
     const fetchHistorialMedico = async () => {
       try {
-        const response = await fetch('https://healthy-back.vercel.app/historial/1');
+        const response = await fetch('https://healthy-back.vercel.app/historial', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`, // Añade el token en los headers
+          },
+        });
+
         if (response.ok) {
           const data = await response.json();
           // Ordenar los datos por fecha antes de almacenarlos en el estado
@@ -28,7 +37,7 @@ const RequestHistorial: React.FC<RequestHistorialProps> = ({ searchTerm }) => {
     };
 
     fetchHistorialMedico();
-  }, []);
+  }, [token]); // Asegúrate de que el useEffect se vuelva a ejecutar si el token cambia
 
   // Filtrar los datos según el término de búsqueda
   const filteredHistorial = historialMedico.filter(item => 
