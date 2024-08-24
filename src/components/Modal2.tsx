@@ -1,11 +1,15 @@
 // Modal2.tsx
 import React, { useState } from 'react';
 import './Modal2.css';
+import { useGlobalContext } from '../GlobalContext'; // Importa el hook para usar el contexto
+
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
+
 
 const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [nombre, setNombre] = useState('');
@@ -34,7 +38,9 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       const response = await fetch('https://healthy-back.vercel.app/historial', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`, // Añade el token en los headers
+
         },
         body: JSON.stringify(data),
       });
