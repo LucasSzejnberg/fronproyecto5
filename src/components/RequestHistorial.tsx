@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Rectangulo2 from './Rectangulo2';
 import './Rectangulo2.css';
-import { useGlobalContext } from '../GlobalContext'; // Importa el hook para usar el contexto
 
 interface RequestHistorialProps {
   searchTerm: string;
 }
 
 const RequestHistorial: React.FC<RequestHistorialProps> = ({ searchTerm }) => {
-  const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
   const [historialMedico, setHistorialMedico] = useState<any[]>([]); // Estado para almacenar el historial médico
+  const token = localStorage.getItem('loginToken');
 
   useEffect(() => {
     // Función para hacer la solicitud al historial médico

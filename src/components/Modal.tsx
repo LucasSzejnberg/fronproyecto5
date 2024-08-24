@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Modal.css';
 import FormElectro from './FormElectro';
-import { useGlobalContext } from '../GlobalContext'; // Importa el hook para usar el contexto
 
 let rst = 0;
 
@@ -72,7 +71,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [fecha, setFecha] = useState<string>('');
   const [showFormElectro, setShowFormElectro] = useState(false);
   const [formElectroData, setFormElectroData] = useState<any>(null);
-  const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -101,19 +99,17 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
     const a = await uploadFileAndGetResult(selectedFile);
 
-    // Mostrar el formulario Electro si el archivo es un electrocardiograma
     if (rst === 0) {
       console.log("a es igual a ", a);
 
       if (a === 'Upload successful: "electrocardiograma"') {
         console.log("entra a electro la concha de mi vieja");
         setShowFormElectro(true);
-        rst = 1; // Indicamos que ya se ha mostrado el formulario
+        rst = 1; 
         return;
       }
     }
 
-    // Si ya se hizo el submit del FormElectro, proceder con el submit final
     const formData = new FormData();
     const currentDate = new Date(fecha).toISOString().split('T')[0];
     formData.append("date", currentDate);
@@ -125,10 +121,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     if (formElectroData) {
       formData.append("diccionarioElectro", JSON.stringify(formElectroData));
     }
-    
-    console.log(formData);
-    for (const pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
+
+    const token = localStorage.getItem('loginToken') || ''; // Asegura que el token no sea null
+
+    if (!token) {
+      console.error('Token no encontrado, redirigiendo a la página de inicio de sesión');
+      return;
     }
 
     const isSuccessful = await handleButton3Click("https://healthy-back.vercel.app/estudio", formData, token);

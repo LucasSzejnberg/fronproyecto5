@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Rectangulo from './Rectangulo';
-import { useGlobalContext } from '../GlobalContext'; // Importa el hook para usar el contexto
 
 const URL = "https://healthy-back.vercel.app";
 
@@ -19,10 +18,10 @@ interface RequestEstudiosProps {
 }
 
 const RequestEstudios: React.FC<RequestEstudiosProps> = ({ searchTerm }) => {
-  const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
   const [estudios, setEstudios] = useState<Estudio[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const token = localStorage.getItem('loginToken');
 
   let ra=loading;
   let ba=error;

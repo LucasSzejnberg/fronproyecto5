@@ -1,7 +1,6 @@
 // Modal2.tsx
 import React, { useState } from 'react';
 import './Modal2.css';
-import { useGlobalContext } from '../GlobalContext'; // Importa el hook para usar el contexto
 
 
 interface ModalProps {
@@ -13,7 +12,7 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [nombre, setNombre] = useState('');
   const [fecha, setFecha] = useState('');
   const [mensaje, setMensaje] = useState('');
-  const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
+  const token = localStorage.getItem('loginToken');
 
 
   if (!isOpen) return null;

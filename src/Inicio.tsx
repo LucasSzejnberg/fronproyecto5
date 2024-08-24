@@ -1,15 +1,12 @@
-// Inicio.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Registro.css';
 import './Casa.css';
-import { useGlobalContext } from './GlobalContext';
 
 const Inicio: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setResult } = useGlobalContext(); // Obtener el setter del contexto global
 
   const handleLogin = async () => {
     try {
@@ -29,9 +26,9 @@ const Inicio: React.FC = () => {
       } else {
         console.debug(result);
 
-        // Guardar result en la variable global
-        setResult(result);
-        
+        // Guardar el resultado en localStorage
+        localStorage.setItem('loginToken', result);
+
         navigate('/estudios');
       }
     } catch (error) {

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Rectangulo1 from './Rectangulo1';
 import './RequestTurnos1.css';
-import { useGlobalContext } from '../GlobalContext'; // Importa el hook para usar el contexto
 
 interface Turno {
   _id: string;
@@ -19,7 +18,7 @@ interface RequestTurnos1Props {
 const RequestTurnos1: React.FC<RequestTurnos1Props> = ({ searchTerm }) => {
   const [turnos, setTurnos] = useState<Turno[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
+  const token = localStorage.getItem('loginToken');
 
   useEffect(() => {
     const fetchTurnos = async () => {
