@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Rectangulo1 from './Rectangulo1';
 import './RequestTurnos1.css';
+import { useGlobalContext } from '../GlobalContext'; // Importa el hook para usar el contexto
 
 interface Turno {
   _id: string;
@@ -18,12 +19,17 @@ interface RequestTurnos1Props {
 const RequestTurnos1: React.FC<RequestTurnos1Props> = ({ searchTerm }) => {
   const [turnos, setTurnos] = useState<Turno[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
 
   useEffect(() => {
     const fetchTurnos = async () => {
       try {
-        const response = await axios.get('https://healthy-back.vercel.app/turnos');
-        
+        const response = await axios.get('https://healthy-back.vercel.app/turnos', {
+          headers: {
+            Authorization: `Bearer ${token}`, // Añade el token en los headers
+          },
+        });
+
         // Verificar si la respuesta es un array
         if (Array.isArray(response.data)) {
           setTurnos(response.data);
@@ -37,8 +43,10 @@ const RequestTurnos1: React.FC<RequestTurnos1Props> = ({ searchTerm }) => {
       }
     };
 
-    fetchTurnos();
-  }, []);
+    if (token) {
+      fetchTurnos(); // Solo ejecuta si existe un token
+    }
+  }, [token]); // Dependencia en el token para asegurar que está disponible
 
   if (error) {
     return <div>{error}</div>; // Mostrar mensaje de error si lo hay
