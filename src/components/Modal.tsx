@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Modal.css';
 import FormElectro from './FormElectro';
+import { useGlobalContext } from '../GlobalContext'; // Importa el hook para usar el contexto
 
 let rst = 0;
 
@@ -18,7 +19,7 @@ async function uploadFileAndGetResult(file: File): Promise<string> {
   formData.append('file', file);
 
   try {
-    const response = await fetch('https://main-lahv.onrender.com/sz', {
+    const response = await fetch('https://hjuyhjiuhjdsadasda-healthy.hf.space/upload-image/', {
       method: 'POST',
       body: formData,
     });
@@ -38,11 +39,15 @@ async function uploadFileAndGetResult(file: File): Promise<string> {
   }
 }
 
-const handleButton3Click = async (url: string, formData: FormData) => {
+const handleButton3Click = async (url: string, formData: FormData, token: string) => {
   try {
     console.log("Botón 3 fue clickeado");
     const response = await fetch(url, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`, // Añade el token en los headers
+      },
       body: formData,
     });
     console.log('Respuesta del servidor:', response);
@@ -67,6 +72,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [fecha, setFecha] = useState<string>('');
   const [showFormElectro, setShowFormElectro] = useState(false);
   const [formElectroData, setFormElectroData] = useState<any>(null);
+  const { result: token } = useGlobalContext(); // Accede al token desde el contexto global
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -125,7 +131,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       console.log(pair[0], pair[1]);
     }
 
-    const isSuccessful = await handleButton3Click("https://healthy-back.vercel.app/estudio", formData);
+    const isSuccessful = await handleButton3Click("https://healthy-back.vercel.app/estudio", formData, token);
     console.log('Solicitud exitosa:', isSuccessful);
 
     console.log('Esperando 10 segundos antes de recargar la página...');
