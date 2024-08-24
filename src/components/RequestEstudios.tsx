@@ -63,7 +63,7 @@ const RequestEstudios: React.FC<RequestEstudiosProps> = ({ searchTerm }) => {
 
   useEffect(() => {
     fetchEstudios();
-    const intervalId = setInterval(fetchEstudios, 5000); // Fetch data every 5 seconds
+    const intervalId = setInterval(fetchEstudios, 35000); // Fetch data every 5 seconds
 
     return () => clearInterval(intervalId); // Clear interval on component unmount
   }, [token]); // Add token to dependencies if it might change
