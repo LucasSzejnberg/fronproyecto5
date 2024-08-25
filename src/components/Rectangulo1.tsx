@@ -15,17 +15,22 @@ const Rectangulo1: React.FC<RectanguloProps> = ({ fecha, medico, paciente, hora 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
 
+  let a =paciente;
+  let b=a;
+  a=b;
   return (
     <>
       <div className="rectangulo6666">
-        <span className="fecha44">{fecha}</span><span className="fecha445">{" - "}</span><span className="fecha445">{medico}</span>
-        <button onClick={handleShowModal}>Detalle</button>
+        <span className="fecha44">{fecha+ " - "+medico}</span>
+
+        <button onClick={handleShowModal} className="details-button">
+          <img src="/tresPuntitos.png" alt="Detalles" className="details-icon" />
+        </button>
       </div>
       {showModal && (
         <Modal5 onClose={handleCloseModal}>
           <div className="modal-content">
             <p>Médico: {medico}</p>
-            <p>Paciente: {paciente}</p>
             <p>Fecha: {fecha}</p>
             <p>Hora: {hora}</p>
           </div>

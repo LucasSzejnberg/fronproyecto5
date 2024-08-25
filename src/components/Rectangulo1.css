@@ -9,6 +9,23 @@
   box-sizing: border-box;
   width: 40%;
   margin-left: 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Rectangulo1.css */
+
+.details-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  justify-self: right;
+}
+
+.details-icon {
+  width: 20px; /* Ajusta el tamaño según tus necesidades */
+  height: auto;
 }
 
 .rectangulo span {
