@@ -44,7 +44,6 @@ const handleButton3Click = async (url: string, formData: FormData, token: string
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`, // Añade el token en los headers
       },
       body: formData,
