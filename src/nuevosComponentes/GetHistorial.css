@@ -1,0 +1,7 @@
+.historial-container-new{
+    margin-top: 0vw;
+    margin-left: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10%;
+}

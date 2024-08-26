@@ -1,0 +1,58 @@
+/* Estilos para el contenedor del menú */
+.MenuIzquierda-Container {
+    background-color: #5c5b5b;
+    width: 200px;
+    height: calc(100vh - 100px); /* Altura completa, restando el header de 100px */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: fixed; /* Fijarlo en la pantalla debajo del header */
+    top: 115px; /* Para que el menú comience justo debajo del header */
+    left: 0;
+}
+  
+/* Estilos para los botones superiores */
+.MenuIzquierda-ButtonsTop {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+  
+.MenuIzquierda-Button {
+    background-color: #e4dbdb;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: normal; /* Cambiar la fuente a regular */
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    font-family: "Noticia Text", serif;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cambiar color cuando esté activo */
+.MenuIzquierda-Button.active {
+    background-color: #b3ddf2;
+}
+  
+/* Estilos para los botones de imagen de abajo */
+.MenuIzquierda-ButtonBottom {
+    display: flex;
+    flex-direction: column; /* Organizar en columna los botones inferiores */
+    align-items: center; /* Centrar las imágenes horizontalmente */
+}
+
+.MenuIzquierda-BottomImage {
+    width: 100%; /* Ajustar el tamaño de la imagen */
+    height: auto; /* Mantener la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio entre las dos imágenes */
+    border-radius: 10px; /* Opcional: redondear las esquinas */
+}

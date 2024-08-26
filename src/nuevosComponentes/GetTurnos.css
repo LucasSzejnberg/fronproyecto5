@@ -1,0 +1,8 @@
+.request-turnos-container-new {
+    margin-top: 3%;
+    margin-left: 14%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: flex-start;
+}
