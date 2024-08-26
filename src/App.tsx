@@ -7,7 +7,6 @@ import Casa from "./Casa";
 import Registro from "./Registro";
 import Inicio from "./Inicio";
 import Perfil from "./Perfil";
-import Tes from "./nuevosComponentes/Test";
 import Nuevoestudio from "./EstudiosNueva";
 import Nuevohistoria from "./HistoriaClinicaNueva";
 import NuevoTurnos from "./TurnosNuevo";
@@ -23,7 +22,6 @@ function App() {
       <Route path="/registro" element={<Registro />} />
       <Route path="/iniciar" element={<Inicio />} />
       <Route path="/perfil" element={<Perfil />} />
-      <Route path="/test" element={<Tes />} />
       <Route path="/EstudiosNueva" element={<Nuevoestudio />} />
       <Route path="/HistoriaClinicaNueva" element={<Nuevohistoria />} />
       <Route path="/TurnosNueva" element={<NuevoTurnos />} />
