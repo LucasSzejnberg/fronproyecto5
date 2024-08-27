@@ -1,5 +1,3 @@
-/* Modal7.css */
-
 /* Fondo oscuro */
 .Modal7-overlay {
   position: fixed;
@@ -7,51 +5,66 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9900000009; /* Asegura que esté por encima de otros elementos */
+  z-index: 9900000009;
 }
 
 /* Cuadrado blanco */
 .Modal7-content {
   background-color: white;
   width: 300px;
-  height: 300px;
-  padding: 20px;
+  padding: 0;
   border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para darle un efecto flotante */
 }
 
-/* Estilo del botón cerrar */
-.Modal7-closeButton {
-  margin-top: 20px;
-  padding: 10px 15px;
-  background-color: #ff6347; /* Color de fondo del botón */
+/* Barra superior */
+.Modal7-header {
+  width: 100%;
+  background-color: #eeb573; /* Color EEB573 */
+  padding: 10px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
+  font-weight: bold;
 }
 
-.Modal7-closeButton:hover {
-  background-color: #ff4530; /* Cambio de color al pasar el ratón */
+/* Contenido del cuerpo */
+.Modal7-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
 }
 
 /* Estilo del enlace */
-.Modal7-content a {
-  color: #1a73e8; /* Azul para el link */
+.Modal7-body a {
+  color: #1a73e8;
   text-decoration: none;
   font-weight: bold;
-  margin-top: 10px;
 }
 
-.Modal7-content a:hover {
+.Modal7-body a:hover {
   text-decoration: underline;
 }
+
+/* Estilo del icono de copiar */
+.Modal7-copyIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.textoNegroCompartir{ font-size: 20px;
+  font-family: 'Noticia Text', serif;
+  color: #000000;}

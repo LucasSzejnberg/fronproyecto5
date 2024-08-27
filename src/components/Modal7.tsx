@@ -8,17 +8,15 @@ interface Modal7Props {
 }
 
 const Modal7: React.FC<Modal7Props> = ({ isOpen, onClose }) => {
-  // Obtén el token del localStorage
   let token = localStorage.getItem('loginToken');
-
-  // Si el token existe, le quitamos el primer y último carácter
   if (token) {
     token = token.slice(1, -1);
   }
 
   if (!isOpen || !token) return null;
 
-  const shareLink = `/#/estudiosnuevacompartir/${token}`; // Genera el enlace personalizado con el token modificado
+  const shareLink = `/#/estudiosnuevacompartir/${token}`;
+  const abbreviatedLink = `${shareLink.slice(0, 20)}...`; // Abreviate the link
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -26,15 +24,27 @@ const Modal7: React.FC<Modal7Props> = ({ isOpen, onClose }) => {
     }
   };
 
-  // Usamos un portal para que el modal se inserte en el body
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText("josephfiter.online"+shareLink);
+  };
+
   return ReactDOM.createPortal(
     <div className="Modal7-overlay" onClick={handleOverlayClick}>
       <div className="Modal7-content">
-        <h2>Link para compartir:</h2>
-        <a href={shareLink} target="_blank" rel="noopener noreferrer">
-          {shareLink}
-        </a>
-        <button className="Modal7-closeButton" onClick={onClose}>Cerrar</button>
+        <div className="Modal7-header">
+          <span className='textoNegroCompartir'>Compartir archivo</span>
+        </div>
+        <div className="Modal7-body">
+          <a href={shareLink} target="_blank" rel="noopener noreferrer">
+            {abbreviatedLink}
+          </a>
+          <img
+            src="/copiarboton.png"  // Replace with the actual path to your image
+            alt="Copiar enlace"
+            className="Modal7-copyIcon"
+            onClick={handleCopyLink}
+          />
+        </div>
       </div>
     </div>,
     document.body
