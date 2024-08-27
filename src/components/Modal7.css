@@ -1,22 +1,57 @@
-/* Modal6.css */
+/* Modal7.css */
 
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-contentabc {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
-  }
-  
+/* Fondo oscuro */
+.Modal7-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9900000009; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Cuadrado blanco */
+.Modal7-content {
+  background-color: white;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para darle un efecto flotante */
+}
+
+/* Estilo del botón cerrar */
+.Modal7-closeButton {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #ff6347; /* Color de fondo del botón */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.Modal7-closeButton:hover {
+  background-color: #ff4530; /* Cambio de color al pasar el ratón */
+}
+
+/* Estilo del enlace */
+.Modal7-content a {
+  color: #1a73e8; /* Azul para el link */
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.Modal7-content a:hover {
+  text-decoration: underline;
+}

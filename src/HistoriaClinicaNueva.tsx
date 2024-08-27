@@ -1,33 +1,49 @@
 import React, { useState } from 'react';
 import Header from './nuevosComponentes/Header';
 import MenuIzquierda from './nuevosComponentes/MenuIzquierda';
-import EncabezadoBusqueda from "./nuevosComponentes/EncabezadoBusqueda";
-import GetHistorial from './nuevosComponentes/GetHistorial'; // Asegúrate de que esta ruta sea correcta
+import EncabezadoBusqueda from './nuevosComponentes/EncabezadoBusqueda';
+import GetHistorial from './nuevosComponentes/GetHistorial';
+import Modal2 from './components/Modal2'; // Asegúrate de que la ruta sea correcta
 
-const Estudios: React.FC = () => {
-  // Estado para almacenar el término de búsqueda
+const HistoriaClinica: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isModal2Open, setIsModal2Open] = useState(false); // Estado para manejar la visibilidad del modal
 
-  // Función para manejar los cambios en el input de búsqueda
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value); // Actualiza el término de búsqueda
+    setSearchTerm(event.target.value);
+  };
+
+  // Función para manejar el clic en la imagen inferior
+  const handleBottomImageClick = () => {
+    setIsModal2Open(true); // Abre el Modal2
+  };
+
+  const closeModal2 = () => {
+    setIsModal2Open(false); // Cierra el Modal2
   };
 
   return (
     <div>
-      <Header logo={"/logo.png"} userName={"Joseph Fiter"} userImage={"/user.png"} />
+      <Header 
+        logo={"/logo.png"} 
+        userName={"Joseph Fiter"} 
+        userImage={"/user.png"} 
+      />
       <MenuIzquierda 
-        activeButton="Historia Clinica" // Cambia a "Estudios" si este es el botón activo
+        activeButton="Historia Clinica"
         bottomImageSrc="/HistorialNuevoBoton.png" 
         botoncompartir="/compartirboton.png"
+        onBottomImageClick={handleBottomImageClick} // Pasar la función
       />
       <EncabezadoBusqueda
         texto="Estas viendo tu historia clinica"
-        onSearchChange={handleSearchChange} // Pasamos la función que maneja el input
+        onSearchChange={handleSearchChange}
       />
-      <GetHistorial searchTerm={searchTerm} /> {/* Pasamos el término de búsqueda */}
+      <GetHistorial searchTerm={searchTerm} />
+
+      <Modal2 isOpen={isModal2Open} onClose={closeModal2} /> {/* Mostrar el Modal2 si el estado es verdadero */}
     </div>
   );
 }
 
-export default Estudios;
+export default HistoriaClinica;

@@ -2,15 +2,24 @@ import React, { useState } from 'react';
 import Header from './nuevosComponentes/Header';
 import MenuIzquierda from './nuevosComponentes/MenuIzquierda';
 import EncabezadoBusqueda from './nuevosComponentes/EncabezadoBusqueda';
-import GetTurnos from './nuevosComponentes/GetTurnos'; // Asegúrate de que la ruta sea correcta
+import GetTurnos from './nuevosComponentes/GetTurnos';
+import Modal6 from './components/Modal6'; // Asegúrate de que la ruta sea correcta
 
-function Estudios() {
-  // Estado para almacenar el término de búsqueda
+const Turnos: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isModal6Open, setIsModal6Open] = useState(false); // Estado para manejar la visibilidad del modal
 
-  // Función para manejar los cambios en el input de búsqueda
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value); // Actualiza el término de búsqueda
+    setSearchTerm(event.target.value);
+  };
+
+  // Función para manejar el clic en la imagen inferior
+  const handleBottomImageClick = () => {
+    setIsModal6Open(true); // Abre el Modal6
+  };
+
+  const closeModal6 = () => {
+    setIsModal6Open(false); // Cierra el Modal6
   };
 
   return (
@@ -24,15 +33,17 @@ function Estudios() {
         activeButton="Turnos" 
         bottomImageSrc="/turnonuevo.png" 
         botoncompartir="/compartirboton.png" 
+        onBottomImageClick={handleBottomImageClick} // Pasar la función
       />
       <EncabezadoBusqueda
         texto="Estas viendo tus turnos"
-        onSearchChange={handleSearchChange} // Pasamos la función que maneja el input
+        onSearchChange={handleSearchChange}
       />
-      {/* Lista de turnos filtrados */}
-      <GetTurnos searchTerm={searchTerm} /> {/* Pasamos el término de búsqueda */}
+      <GetTurnos searchTerm={searchTerm} />
+
+      {isModal6Open && <Modal6 onClose={closeModal6} />} {/* Mostrar el Modal6 si el estado es verdadero */}
     </div>
   );
 }
 
-export default Estudios;
+export default Turnos;

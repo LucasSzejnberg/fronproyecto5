@@ -1,33 +1,47 @@
 import React, { useState } from 'react';
 import Header from './nuevosComponentes/Header';
 import MenuIzquierda from './nuevosComponentes/MenuIzquierda';
-import GetEstudios from './nuevosComponentes/GetEstudios'; // Reemplaza RequestEstudios por GetEstudios
 import EncabezadoBusqueda from './nuevosComponentes/EncabezadoBusqueda';
+import GetEstudios from './nuevosComponentes/GetEstudios';
+import Modal from './components/Modal'; // Asegúrate de que la ruta sea correcta
 
-function Estudios() {
-  // Estado para almacenar el término de búsqueda
+const Estudios: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para manejar la visibilidad del modal
 
-  // Función para manejar los cambios en el input de búsqueda
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value); // Actualiza el término de búsqueda
+    setSearchTerm(event.target.value);
+  };
+
+  // Función para manejar el clic en la imagen inferior
+  const handleBottomImageClick = () => {
+    setIsModalOpen(true); // Abre el Modal
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false); // Cierra el Modal
   };
 
   return (
     <div>
-      <Header logo={"/logo.png"} userName={"Joseph Fiter"} userImage={"/user.png"} />
+      <Header 
+        logo={"/logo.png"} 
+        userName={"Joseph Fiter"} 
+        userImage={"/user.png"} 
+      />
       <MenuIzquierda
         activeButton="Estudios"
         bottomImageSrc="/BotonSubirEstudio.png"
         botoncompartir="/compartirboton.png"
+        onBottomImageClick={handleBottomImageClick} // Pasar la función
       />
-      {/* Encabezado de búsqueda */}
       <EncabezadoBusqueda
         texto="Estas viendo tus estudios"
-        onSearchChange={handleSearchChange} // Pasamos la función que maneja el input
+        onSearchChange={handleSearchChange}
       />
-      {/* Lista de estudios filtrados */}
-      <GetEstudios searchTerm={searchTerm} /> {/* Pasamos el término de búsqueda */}
+      <GetEstudios searchTerm={searchTerm} />
+
+      <Modal isOpen={isModalOpen} onClose={closeModal} /> {/* Mostrar el Modal si el estado es verdadero */}
     </div>
   );
 }

@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import './Modal2.css';
 
-
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -13,7 +12,6 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [fecha, setFecha] = useState('');
   const [mensaje, setMensaje] = useState('');
   const token = localStorage.getItem('loginToken');
-
 
   if (!isOpen) return null;
 
