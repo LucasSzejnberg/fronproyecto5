@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Banner from './components/Banner'; 
 import Sidebar from './components/Sidebar';
 import RequestEstudios from './components/RequestEstudios';
 import SearchBanner from './components/SearchBanner';
@@ -13,7 +12,6 @@ function Estudios() {
   a=b;
   return (
     <div >
-      <Banner logoSrc="/logo.png" altText="Mi Logo" />
       <Sidebar 
         topButton1ImgSrc="/BotonEstudios.png"
         topButton2ImgSrc="/BotonHistoriaClinica.png"
