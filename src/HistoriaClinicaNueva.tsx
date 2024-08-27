@@ -22,7 +22,7 @@ const Estudios: React.FC = () => {
         botoncompartir="/compartirboton.png"
       />
       <EncabezadoBusqueda
-        texto="VISUALIZACION DE HISTORIAL"
+        texto="Estas viendo tu historia clinica"
         onSearchChange={handleSearchChange} // Pasamos la función que maneja el input
       />
       <GetHistorial searchTerm={searchTerm} /> {/* Pasamos el término de búsqueda */}

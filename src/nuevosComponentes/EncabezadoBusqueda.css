@@ -2,7 +2,7 @@
 .EncabezadoBusqueda-Container {
     background-color: #D9D9D9;
     height: 60px; /* Puedes ajustar la altura según sea necesario */
-    width: 84.40%; /* Asegura que ocupe el ancho completo */
+    width: auto; /* Asegura que ocupe el ancho completo */
     display: flex;
     align-items: center;
     justify-content: space-between;

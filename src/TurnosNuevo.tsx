@@ -26,7 +26,7 @@ function Estudios() {
         botoncompartir="/compartirboton.png" 
       />
       <EncabezadoBusqueda
-        texto="VISUALIZACION DE TURNOS"
+        texto="Estas viendo tus turnos"
         onSearchChange={handleSearchChange} // Pasamos la función que maneja el input
       />
       {/* Lista de turnos filtrados */}

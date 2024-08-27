@@ -29,7 +29,7 @@ const Inicio: React.FC = () => {
         // Guardar el resultado en localStorage
         localStorage.setItem('loginToken', result);
 
-        navigate('/estudios');
+        navigate('/estudiosnueva');
       }
     } catch (error) {
       console.error('Error al iniciar sesión:', error);

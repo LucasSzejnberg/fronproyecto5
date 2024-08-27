@@ -23,7 +23,7 @@ function Estudios() {
       />
       {/* Encabezado de búsqueda */}
       <EncabezadoBusqueda
-        texto="VISUALIZACION DE ARCHIVOS"
+        texto="Estas viendo tus estudios"
         onSearchChange={handleSearchChange} // Pasamos la función que maneja el input
       />
       {/* Lista de estudios filtrados */}
