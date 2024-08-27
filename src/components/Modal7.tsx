@@ -5,13 +5,20 @@ import './Modal7.css';
 interface Modal7Props {
   isOpen: boolean;
   onClose: () => void;
-  shareLink: string; // El link que se va a pasar por variable
 }
 
-const Modal7: React.FC<Modal7Props> = ({ isOpen, onClose, shareLink }) => {
-  const token = localStorage.getItem('loginToken'); // Obtén el token del localStorage
+const Modal7: React.FC<Modal7Props> = ({ isOpen, onClose }) => {
+  // Obtén el token del localStorage
+  let token = localStorage.getItem('loginToken');
 
-  if (!isOpen) return null;
+  // Si el token existe, le quitamos el primer y último carácter
+  if (token) {
+    token = token.slice(1, -1);
+  }
+
+  if (!isOpen || !token) return null;
+
+  const shareLink = `/#/estudiosnuevacompartir/${token}`; // Genera el enlace personalizado con el token modificado
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -30,7 +37,7 @@ const Modal7: React.FC<Modal7Props> = ({ isOpen, onClose, shareLink }) => {
         <button className="Modal7-closeButton" onClick={onClose}>Cerrar</button>
       </div>
     </div>,
-    document.body // Aquí indicamos que el modal debe insertarse en el body
+    document.body
   );
 };
 
