@@ -4,7 +4,7 @@ import MenuIzquierda from './nuevosComponentes/MenuIzquierda';
 import EncabezadoBusqueda from './nuevosComponentes/EncabezadoBusqueda';
 import GetEstudios from './nuevosComponentes/GetEstudios';
 import Modal from './components/Modal'; // Asegúrate de que la ruta sea correcta
-
+import Nombre from "./nuevosComponentes/GetNombre"
 const Estudios: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false); // Estado para manejar la visibilidad del modal
@@ -24,8 +24,9 @@ const Estudios: React.FC = () => {
 
   return (
     <div>
+      <Nombre></Nombre>
       <Header 
-        logo={"/logo.png"} 
+        logo={"/logo.svg"} 
         userName={"Joseph Fiter"} 
         userImage={"/user.png"} 
       />

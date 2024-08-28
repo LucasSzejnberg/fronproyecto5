@@ -7,7 +7,9 @@ interface HeaderProps {
   userImage: string; // Ruta de la imagen de perfil
 }
 
-const Header: React.FC<HeaderProps> = ({ logo, userName, userImage }) => {
+const Header: React.FC<HeaderProps> = ({ logo,  userImage }) => {
+  const nomb = localStorage.getItem('nombreData');
+
   return (
     <header className="Header-Container">
       <div className="Header-LogoContainer">
@@ -15,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ logo, userName, userImage }) => {
       </div>
       <div className="Header-UserInfo">
         <img src={userImage} alt="Foto de perfil" className="Header-UserImage" />
-        <span className="Header-UserName">{userName}</span>
+        <span className="Header-UserName">{nomb}</span>
 
       </div>
     </header>

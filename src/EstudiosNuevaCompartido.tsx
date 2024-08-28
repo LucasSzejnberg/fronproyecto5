@@ -8,8 +8,10 @@ const EstudiosNueva: React.FC = () => {
 
   useEffect(() => {
     if (token) {
+      const compartido ="activado";
       const tokenWithQuotes = `"${token}"`; // Agrega comillas al principio y al final del token
       localStorage.setItem('loginToken', tokenWithQuotes); // Guarda el token con comillas en localStorage
+      localStorage.setItem('esCompartido', compartido); // Guarda el token con comillas en localStorage
 
       // Esperar 1 segundo antes de navegar a la ruta "/estudiosnueva"
       setTimeout(() => {

@@ -12,6 +12,7 @@ interface MenuIzquierdaProps {
 
 const MenuIzquierda: React.FC<MenuIzquierdaProps> = ({ activeButton, bottomImageSrc, botoncompartir, onBottomImageClick }) => {
   const [isModal7Open, setIsModal7Open] = useState(false);
+  const compartido = localStorage.getItem('esCompartido');
 
   const handleShareButtonClick = () => {
     setIsModal7Open(true);
@@ -44,12 +45,15 @@ const MenuIzquierda: React.FC<MenuIzquierdaProps> = ({ activeButton, bottomImage
         </NavLink>
       </div>
       <div className="MenuIzquierda-ButtonBottom">
-        <img 
-          src={botoncompartir} 
-          alt="Imagen de compartir" 
-          className="MenuIzquierda-BottomImage" 
-          onClick={handleShareButtonClick} // Maneja el click en el botón de compartir
-        />
+        {/* Solo mostrar el botón de compartir si 'compartido' no es igual a "activado" */}
+        {compartido !== 'activado' && (
+          <img 
+            src={botoncompartir} 
+            alt="Imagen de compartir" 
+            className="MenuIzquierda-BottomImage" 
+            onClick={handleShareButtonClick} // Maneja el click en el botón de compartir
+          />
+        )}
         <img 
           src={bottomImageSrc} 
           alt="Imagen dinámica" 

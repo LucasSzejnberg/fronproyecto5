@@ -25,7 +25,7 @@ const HistoriaClinica: React.FC = () => {
   return (
     <div>
       <Header 
-        logo={"/logo.png"} 
+        logo={"/logo.svg"} 
         userName={"Joseph Fiter"} 
         userImage={"/user.png"} 
       />
