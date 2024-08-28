@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
   if(nomb==null || nomb=="100p"){
     setTimeout(() => {
       window.location.reload(); // Recargar la página
-    }, 1000); // Esperar 2 segundos
+    }, 3000); // Esperar 2 segundos
   }
   console.log(nomb);
   // Verificar si nomb existe y luego eliminar los primeros 21 y los últimos 3 caracteres
