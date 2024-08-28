@@ -7,6 +7,7 @@ const Inicio: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const compartido ="no";
 
   const handleLogin = async () => {
     try {
@@ -28,6 +29,8 @@ const Inicio: React.FC = () => {
 
         // Guardar el resultado en localStorage
         localStorage.setItem('loginToken', result);
+        localStorage.setItem('esCompartido', compartido); // Guarda el token con comillas en localStorage
+        localStorage.setItem('nombreData', email);
 
         navigate('/estudiosnueva');
       }
