@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // Para capturar el token de la URL y navegar
-import Estudios from "./EstudiosNueva";
+import Nombre from "./nuevosComponentes/GetNombre"
 
 const EstudiosNueva: React.FC = () => {
   const { token } = useParams<{ token: string }>(); // Extrae el token de la URL
@@ -22,7 +22,8 @@ const EstudiosNueva: React.FC = () => {
 
   return (
     <div>
-      <Estudios />
+            <Nombre></Nombre>
+
     </div>
   );
 };

@@ -26,7 +26,6 @@ const Turnos: React.FC = () => {
     <div>
       <Header 
         logo={"/logo.svg"} 
-        userName={"Joseph Fiter"} 
         userImage={"/user.png"} 
       />
       <MenuIzquierda 

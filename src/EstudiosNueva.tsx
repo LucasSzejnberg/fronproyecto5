@@ -27,7 +27,6 @@ const Estudios: React.FC = () => {
       <Nombre></Nombre>
       <Header 
         logo={"/logo.svg"} 
-        userName={"Joseph Fiter"} 
         userImage={"/user.png"} 
       />
       <MenuIzquierda

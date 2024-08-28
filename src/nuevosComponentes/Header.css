@@ -40,14 +40,15 @@
 }
 
 .Header-UserName {
-  width: 120px;
-  height: 60px;
+  width: 170px;
+  height: 46px;
   margin-left: 25px;
   margin-right: 10px;
   font-size: 26px;
   color: #333;
   font-family: "Noticia Text", serif;
   line-height: 1.1;
+  justify-self: normal;
 }
 
 .Header-UserImage {
