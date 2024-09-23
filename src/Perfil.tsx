@@ -1,8 +1,15 @@
 import React from 'react';
 import './Perfil.css';
 import './Casa.css';
+import { useNavigate } from 'react-router-dom';
 
 const Casa: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    navigate('/estudiosnueva');
+  };
+
   return (
     <div className="casa">
       <div className="franja superior">
@@ -37,10 +44,15 @@ const Casa: React.FC = () => {
           <div className="franja-derecha">
             <h2>ENFERMEDADES CRONICAS</h2>
             <input type="text" className="input-estilo" placeholder="Enfermedades crónicas" />
-            <div className="botones">
-              <button>Guardar</button>
-              <button>Cerrar</button>
-            </div>
+            <div className="contenedor-botones-912">
+  <button className="btn-imagen-912">
+    <img src="guardar.png" className="btn-imagen-cerrar-912" alt="Guardar" />
+  </button>
+  <button className="btn-imagen-912" onClick={handleClose}>
+    <img src="cerrar.png" className="btn-imagen-cerrar-912" alt="Cerrar" />
+  </button>
+</div>
+
           </div>
         </div>
       </div>

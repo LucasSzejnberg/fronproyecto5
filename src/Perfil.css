@@ -42,3 +42,35 @@
   border-color: #007BFF; /* Color del borde al enfocarse */
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al enfocarse */
 }
+
+/* Estilos generales para los botones de imagen */
+.btn-imagen-912 {
+  background: transparent; /* Fondo transparente */
+  border: none;            /* Sin bordes */
+  padding: 0;              /* Elimina el padding por defecto */
+  margin: 0;               /* Elimina el margen por defecto */
+  cursor: pointer;   
+  width: 50%;             /* Ajusta el tamaño de la imagen */
+  height: 10%;        /* Muestra el cursor de puntero al pasar por encima */
+}
+
+/* Estilos específicos para el botón "Guardar" */
+.btn-imagen-guardar-912 img {
+  width: 30%;             /* Ajusta el tamaño de la imagen */
+  height: auto;            /* Ajusta el tamaño de la imagen */
+}
+
+/* Estilos específicos para el botón "Cerrar" */
+.btn-imagen-cerrar-912{
+  width: 90%;             /* Ajusta el tamaño de la imagen */
+  height: auto;            /* Ajusta el tamaño de la imagen */
+}
+
+/* Contenedor de los botones */
+.contenedor-botones-912 {
+  display: flex;           /* Alinea los botones uno al lado del otro */
+  justify-content: center; /* Centra los botones horizontalmente */
+  align-items: center;     /* Centra los botones verticalmente */
+              /* Espacio entre los botones */
+}
+
