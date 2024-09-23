@@ -27,3 +27,18 @@
     flex-direction: column;
 
 }
+.input-estilo {
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px; /* Espacio interno */
+  margin-bottom: 15px; /* Espacio entre inputs */
+  border: 1px solid #ccc; /* Borde sutil */
+  width: 100%; /* Hacer que ocupen todo el ancho disponible */
+  box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+  height: 8%;
+}
+
+.input-estilo:focus {
+  outline: none;
+  border-color: #007BFF; /* Color del borde al enfocarse */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al enfocarse */
+}
