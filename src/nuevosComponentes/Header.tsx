@@ -1,11 +1,13 @@
 import './Header.css'; // Importar los estilos
 import axios from 'axios';
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 
 interface HeaderProps {
   logo: string; // Ruta del logo
   userImage: string; // Ruta de la imagen de perfil
 }
+
 const GetNombre: React.FC = () => {
   const token = localStorage.getItem('loginToken'); // Obtener el token de localStorage
 
@@ -36,6 +38,7 @@ const GetNombre: React.FC = () => {
 
 const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
   const token = localStorage.getItem('loginToken'); // Obtener el token de localStorage
+  const navigate = useNavigate(); // Hook para navegar
 
   console.log("header activo");
   useEffect(() => {
@@ -50,7 +53,6 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
 
         // Guardar la respuesta en localStorage
         console.log("guarda");
-
         localStorage.setItem('nombreData', JSON.stringify(response.data));
       } catch (error) {
         console.error('Error fetching nombre:', error);
@@ -62,12 +64,11 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
     }
   }, [token]); // Volver a ejecutar si el token cambia
 
-
   let nomb = localStorage.getItem('nombreData');
-  if(nomb==null || nomb=="100p"){
+  if (nomb == null || nomb == "100p") {
     setTimeout(() => {
       window.location.reload(); // Recargar la página
-    }, 3000); // Esperar 2 segundos
+    }, 3000); // Esperar 3 segundos
   }
   console.log(nomb);
   // Verificar si nomb existe y luego eliminar los primeros 21 y los últimos 3 caracteres
@@ -75,21 +76,33 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
     nomb = nomb.substring(21, nomb.length - 3);
   }
 
+  // Función para manejar el clic en la imagen de perfil
+  const handleProfileClick = () => {
+    navigate('/perfil'); // Navegar a la página de perfil
+  };
+
   return (
     <header className="Header-Container">
       <div className="Header-LogoContainer">
         <img src={logo} alt="Logo" className="Header-LogoImage" />
       </div>
       <div className="Header-UserInfo">
-        <img src={userImage} alt="Foto de perfil" className="Header-UserImage" />
+        <img
+          src={userImage}
+          alt="Foto de perfil"
+          className="Header-UserImage"
+          onClick={handleProfileClick} // Agregar evento onClick para navegar
+          style={{ cursor: 'pointer' }} // Cambiar el cursor a pointer para indicar que es clicable
+        />
         <span className="Header-UserName">{nomb}</span>
       </div>
     </header>
   );
 };
 
+export default Header;
+
+
 let a =GetNombre;
 let b=a;
 a=b;
-
-export default Header;

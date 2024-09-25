@@ -37,6 +37,21 @@
   height: 8%;
 }
 
+.input-estilo91910 {
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px; /* Espacio interno */
+  margin-bottom: 15px; /* Espacio entre inputs */
+  border: 1px solid #ccc; /* Borde sutil */
+  width: 20%; /* Hacer que ocupen todo el ancho disponible */
+  box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+  height: auto;
+  background: transparent; /* Fondo transparente */
+  border: none;            /* Sin bordes */
+  padding: 0;              /* Elimina el padding por defecto */
+  margin: 0;               /* Elimina el margen por defecto */
+  cursor: pointer;   
+}
+
 .input-estilo:focus {
   outline: none;
   border-color: #007BFF; /* Color del borde al enfocarse */

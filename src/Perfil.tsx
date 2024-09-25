@@ -20,7 +20,7 @@ const Casa: React.FC = () => {
       <div className="franja media">
         <div className="todomedio">
           <div className="franja-izquierda">
-            <img src="imagen.png" alt="Descripción de la imagen" />
+            <img src="user.png" className="input-estilo91910" alt="Descripción de la imagen" />
             <h2>DATOS PERSONALES</h2>
             <input type="text" className="input-estilo" placeholder="Nombre" />
             <input type="text" className="input-estilo" placeholder="Apellido" />
