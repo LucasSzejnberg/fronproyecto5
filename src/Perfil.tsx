@@ -1,14 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Perfil.css';
 import './Casa.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Casa: React.FC = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem('loginToken'); // Obtener el token de localStorage
 
+  // Función para manejar el cierre del perfil y navegar a otra página
   const handleClose = () => {
     navigate('/estudiosnueva');
   };
+
+  // useEffect para hacer la solicitud GET al cargar el componente
+  useEffect(() => {
+    const fetchPerfil = async () => {
+      try {
+        const response = await axios.get('https://healthy-back.vercel.app/perfil', {
+          headers: {
+            'Authorization': `Bearer ${token}`, // Incluir el token en los headers
+          },
+        });
+
+        // Mostrar la respuesta en la consola
+        console.log('Datos del perfil:', response.data);
+      } catch (error) {
+        console.error('Error al obtener los datos del perfil:', error);
+      }
+    };
+
+    if (token) {
+      fetchPerfil(); // Ejecutar la solicitud solo si el token existe
+    } else {
+      console.error('No se encontró el token de autenticación');
+    }
+  }, [token]); // Ejecutar de nuevo si cambia el token
 
   return (
     <div className="casa">
@@ -45,14 +72,13 @@ const Casa: React.FC = () => {
             <h2>ENFERMEDADES CRONICAS</h2>
             <input type="text" className="input-estilo" placeholder="Enfermedades crónicas" />
             <div className="contenedor-botones-912">
-  <button className="btn-imagen-912">
-    <img src="guardar.png" className="btn-imagen-cerrar-912" alt="Guardar" />
-  </button>
-  <button className="btn-imagen-912" onClick={handleClose}>
-    <img src="cerrar.png" className="btn-imagen-cerrar-912" alt="Cerrar" />
-  </button>
-</div>
-
+              <button className="btn-imagen-912">
+                <img src="guardar.png" className="btn-imagen-cerrar-912" alt="Guardar" />
+              </button>
+              <button className="btn-imagen-912" onClick={handleClose}>
+                <img src="cerrar.png" className="btn-imagen-cerrar-912" alt="Cerrar" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
