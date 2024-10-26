@@ -35,8 +35,10 @@ const Casa: React.FC = () => {
         },
       });
 
-      const perfil = response.data[0]; // Asume que perfil contiene los datos recibidos
-    
+      const perfil = response.data[response.data.length-1]; // Asume que perfil contiene los datos recibidos
+      console.log(response.data);
+
+      console.log(response.data.length);
       // Actualizar los estados con los datos recibidos para rellenar los inputs
       setNombre1(perfil.nombre_perfil );
 
