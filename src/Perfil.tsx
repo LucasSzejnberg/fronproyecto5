@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Perfil.css';
 import './Casa.css';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,7 @@ import axios from 'axios';
 const Casa: React.FC = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('loginToken'); // Obtener el token de localStorage
+  const fileInputRef = useRef<HTMLInputElement | null>(null); // Referencia para el input file
 
   // Estados para los datos del formulario
   const [nombre1, setNombre1] = useState('');
@@ -35,15 +36,13 @@ const Casa: React.FC = () => {
         },
       });
 
-      const perfil = response.data[response.data.length-1]; // Asume que perfil contiene los datos recibidos
+      const perfil = response.data[response.data.length - 1]; // Asume que perfil contiene los datos recibidos
       console.log(response.data);
 
-      console.log(response.data.length);
       // Actualizar los estados con los datos recibidos para rellenar los inputs
-      setNombre1(perfil.nombre_perfil );
-
-      setAltura1(perfil["altura_perfil"] || '');
-      setPeso(perfil.peso_perfil );
+      setNombre1(perfil.nombre_perfil || '');
+      setAltura1(perfil.altura_perfil || '');
+      setPeso(perfil.peso_perfil || '');
       setEnfermedades(perfil.enfermedadescronicas_perfil || '');
       setSangre(perfil.tiposangre_perfil || '');
       setMedico(perfil.médicocabecera_perfil || '');
@@ -51,7 +50,6 @@ const Casa: React.FC = () => {
       setObra(perfil.obrasocial_perfil || '');
       setPlan(perfil.plan_perfil || '');
       setEdad1(perfil.edad_perfil || 50); // Actualiza edad con valor del perfil
-
     } catch (error) {
       console.error('Error al obtener los datos del perfil:', error);
     }
@@ -60,11 +58,42 @@ const Casa: React.FC = () => {
   // useEffect para hacer la solicitud GET al cargar el componente
   useEffect(() => {
     if (token) {
+      fetchFoto();
       fetchPerfil(); // Ejecutar la solicitud solo si el token existe
     } else {
       console.error('No se encontró el token de autenticación');
     }
   }, [token]);
+
+  // Función para manejar la selección de la imagen
+  const handleImageClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click(); // Abrir el selector de archivos al hacer clic en la imagen
+    }
+  };
+
+  // Función para manejar el cambio de archivo
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+
+      // Crear un FormData para enviar el archivo
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const response = await axios.post('https://healthy-back.vercel.app/foto', formData, {
+          headers: {
+            'Authorization': `Bearer ${token}`, // Incluir el token en los headers
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        console.log('Imagen subida:', response.data);
+      } catch (error) {
+        console.error('Error al subir la imagen:', error);
+      }
+    }
+  };
 
   // Función para manejar el envío del formulario
   const handleGuardar = async () => {
@@ -92,9 +121,31 @@ const Casa: React.FC = () => {
     } catch (error) {
       console.error('Error al guardar los datos:', error);
     }
+
+
   };
 
-  console.log("el peso variable es", peso);
+
+  const fetchFoto = async () => {
+    try {
+      const response = await axios.get('https://healthy-back.vercel.app/foto', {
+        headers: {
+          'Authorization': `Bearer ${token}`, // Incluir el token en los headers
+        },
+      });
+  
+      // Suponiendo que la foto viene en la respuesta como una URL
+      const fotoUrl = response.data.foto; // Ajusta esto según la estructura de la respuesta
+      console.log(response.data);
+
+      console.log('URL de la foto:', fotoUrl);
+      
+      // Aquí puedes actualizar el estado si necesitas usar la foto en tu componente
+    } catch (error) {
+      console.error('Error al obtener la foto:', error);
+    }
+  };
+
   return (
     <div className="casa">
       <div className="franja superior">
@@ -108,15 +159,15 @@ const Casa: React.FC = () => {
               src="user.png"
               className="input-estilo91910"
               alt="Descripción de la imagen"
-              onClick={fetchPerfil} // Hacer el GET al hacer clic en la imagen de perfil
+              onClick={handleImageClick} // Al hacer clic, abre el selector de archivos
             />
             <h2>DATOS PERSONALES</h2>
             <input
               type="text"
               className="input-estilo"
               placeholder="Nombre"
-              value={nombre1} // Vincula el estado con el input
-              onChange={(e) => setNombre1(e.target.value)} // Almacenar el nombre
+              value={nombre1}
+              onChange={(e) => setNombre1(e.target.value)}
             />
             <input type="text" className="input-estilo" placeholder="Apellido" />
             <input type="email" className="input-estilo" placeholder="Correo electrónico" />
@@ -130,21 +181,21 @@ const Casa: React.FC = () => {
               type="text"
               className="input-estilo"
               placeholder="Peso"
-              value={peso} // Vincula el estado con el input
+              value={peso}
               onChange={(e) => setPeso(e.target.value)}
             />
             <input
               type="text"
               className="input-estilo"
               placeholder="Altura"
-              value={altura1} // Vincula el estado con el input
+              value={altura1}
               onChange={(e) => setAltura1(e.target.value)}
             />
             <input
               type="text"
               className="input-estilo"
               placeholder="Tipo de sangre"
-              value={sangre} // Vincula el estado con el input
+              value={sangre}
               onChange={(e) => setSangre(e.target.value)}
             />
             <h2>DATOS MEDICOS</h2>
@@ -152,28 +203,28 @@ const Casa: React.FC = () => {
               type="text"
               className="input-estilo"
               placeholder="Médico principal"
-              value={medico} // Vincula el estado con el input
+              value={medico}
               onChange={(e) => setMedico(e.target.value)}
             />
             <input
               type="text"
               className="input-estilo"
               placeholder="Número de mi credencial"
-              value={matricula} // Vincula el estado con el input
+              value={matricula}
               onChange={(e) => setMatricula(e.target.value)}
             />
             <input
               type="text"
               className="input-estilo"
               placeholder="Obra social"
-              value={obra} // Vincula el estado con el input
+              value={obra}
               onChange={(e) => setObra(e.target.value)}
             />
             <input
               type="text"
               className="input-estilo"
               placeholder="Plan obra social"
-              value={plan} // Vincula el estado con el input
+              value={plan}
               onChange={(e) => setPlan(e.target.value)}
             />
           </div>
@@ -184,7 +235,7 @@ const Casa: React.FC = () => {
               type="text"
               className="input-estilo"
               placeholder="Enfermedades crónicas"
-              value={enfermedades} // Vincula el estado con el input
+              value={enfermedades}
               onChange={(e) => setEnfermedades(e.target.value)}
             />
             <div className="contenedor-botones-912">
@@ -202,6 +253,15 @@ const Casa: React.FC = () => {
       <div className="franja inferior">
         {/* Contenido de la franja inferior */}
       </div>
+
+      {/* Input file oculto */}
+      <input
+        type="file"
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+        accept="image/*"
+        onChange={handleFileChange} // Manejar el cambio del archivo
+      />
     </div>
   );
 };
