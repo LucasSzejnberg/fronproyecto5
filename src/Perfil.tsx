@@ -8,6 +8,7 @@ const Casa: React.FC = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('loginToken'); // Obtener el token de localStorage
   const fileInputRef = useRef<HTMLInputElement | null>(null); // Referencia para el input file
+  const [fotoUrl, setFotoUrl] = useState<string | undefined>(undefined);
 
   // Estados para los datos del formulario
   const [nombre1, setNombre1] = useState('');
@@ -135,8 +136,10 @@ const Casa: React.FC = () => {
       });
   
       // Suponiendo que la foto viene en la respuesta como una URL
-      const fotoUrl = response.data.foto; // Ajusta esto según la estructura de la respuesta
+      const fotoUrl = response.data[response.data.length-1]["foto_foto"]; // Ajusta esto según la estructura de la respuesta
+      console.log("data nuevo4")
       console.log(response.data);
+      setFotoUrl(fotoUrl);
 
       console.log('URL de la foto:', fotoUrl);
       
@@ -156,7 +159,7 @@ const Casa: React.FC = () => {
         <div className="todomedio">
           <div className="franja-izquierda">
             <img
-              src="user.png"
+              src= {fotoUrl || "user.png"}
               className="input-estilo91910"
               alt="Descripción de la imagen"
               onClick={handleImageClick} // Al hacer clic, abre el selector de archivos
