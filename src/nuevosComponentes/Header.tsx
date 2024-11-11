@@ -41,6 +41,7 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
   const navigate = useNavigate(); // Hook para navegar
 
   console.log("header activo");
+
   useEffect(() => {
     const fetchNombre = async () => {
       try {
@@ -52,28 +53,49 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
         });
 
         // Guardar la respuesta en localStorage
-        console.log("guarda");
+        console.log("guarda nombre");
         localStorage.setItem('nombreData', JSON.stringify(response.data));
       } catch (error) {
         console.error('Error fetching nombre:', error);
       }
     };
 
+    const fetchFoto = async () => {
+      try {
+        const response = await axios.get('https://healthy-back.vercel.app/foto', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`, // Incluir el token en los headers si existe
+          },
+        });
+        const fotoUrl = response.data[response.data.length-1]["foto_foto"]; // Ajusta esto según la estructura de la respuesta
+        userImage=fotoUrl
+        // Guardar la respuesta en localStorage
+        console.log("guarda foto");
+
+        console.log(userImage);
+        
+      } catch (error) {
+        console.error('Error fetching foto:', error);
+      }
+    };
+
     if (token) {
-      fetchNombre(); // Ejecutar la solicitud solo si hay token
+      fetchNombre(); // Ejecutar la solicitud para obtener el nombre
+      fetchFoto();   // Ejecutar la solicitud para obtener la foto
     }
   }, [token]); // Volver a ejecutar si el token cambia
 
   let nomb = localStorage.getItem('nombreData');
-  if (nomb == null || nomb == "100p") {
+  if (nomb == null || nomb === "100p") {
     setTimeout(() => {
       window.location.reload(); // Recargar la página
     }, 3000); // Esperar 3 segundos
   }
   console.log(nomb);
-  // Verificar si nomb existe y luego eliminar los primeros 21 y los últimos 3 caracteres
+
   if (nomb) {
-    nomb = nomb.substring(21, nomb.length - 3);
+    nomb = nomb.substring(21, nomb.length - 3); // Ajustar el contenido del nombre si existe
   }
 
   // Función para manejar el clic en la imagen de perfil
@@ -102,7 +124,6 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
 
 export default Header;
 
-
-let a =GetNombre;
-let b=a;
-a=b;
+let a = GetNombre;
+let b = a;
+a = b;
