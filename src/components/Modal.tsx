@@ -96,8 +96,22 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       return;
     }
 
-    const a = await uploadFileAndGetResult(selectedFile);
+    let a = await uploadFileAndGetResult(selectedFile);
+    a = 'Upload successful: mamografia';
+    if (a === 'Upload successful: mamografia'){
+      const formData1 = new FormData();
+      formData1.append('file', selectedFile);
+      const response = await fetch('http://localhost:8000/upload-image/', {
+        method: 'POST',
+        body: formData1
+      });
+      const data = await response.json();
+      console.log(data.positivos);
+      console.log(data.negativos);
+      console.log(data);
+      localStorage.setItem("diagnostico", "positivo");
 
+    }
     if (rst === 0) {
       console.log("a es igual a ", a);
 
@@ -115,6 +129,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     formData.append("tipo", a);
     formData.append("quien_subio", "hola");
     formData.append("usuario", "1");
+    formData.append("diagnostico", "positivo");
     formData.append("file", selectedFile);
 
     if (formElectroData) {
