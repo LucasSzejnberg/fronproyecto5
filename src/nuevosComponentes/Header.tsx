@@ -1,16 +1,16 @@
 import './Header.css'; // Importar los estilos
 import axios from 'axios';
-import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importar useNavigate
+import React, { useEffect, useState } from 'react';
 
 interface HeaderProps {
   logo: string; // Ruta del logo
   userImage: string; // Ruta de la imagen de perfil
 }
 
+
 const GetNombre: React.FC = () => {
   const token = localStorage.getItem('loginToken'); // Obtener el token de localStorage
-
   useEffect(() => {
     const fetchNombre = async () => {
       try {
@@ -39,6 +39,7 @@ const GetNombre: React.FC = () => {
 const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
   const token = localStorage.getItem('loginToken'); // Obtener el token de localStorage
   const navigate = useNavigate(); // Hook para navegar
+  const [fotito, setFotito] = useState(''); // Estado para la foto
 
   console.log("header activo");
 
@@ -69,10 +70,10 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
           },
         });
         const fotoUrl = response.data[response.data.length-1]["foto_foto"]; // Ajusta esto según la estructura de la respuesta
-        userImage=fotoUrl
+        userImage=fotoUrl;
         // Guardar la respuesta en localStorage
         console.log("guarda foto");
-
+        setFotito(fotoUrl); // Actualizar el estado
         console.log(userImage);
         
       } catch (error) {
@@ -110,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
       </div>
       <div className="Header-UserInfo">
         <img
-          src={userImage}
+          src={fotito}
           alt="Foto de perfil"
           className="Header-UserImage"
           onClick={handleProfileClick} // Agregar evento onClick para navegar
