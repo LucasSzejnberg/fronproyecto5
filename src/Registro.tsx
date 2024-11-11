@@ -29,7 +29,7 @@ const Registro: React.FC = () => {
     });
 
     if (response.ok) {
-      navigate('/estudios');
+      navigate('/estudiosnueva');
     } else {
       console.log('Error en el registro');
     }
