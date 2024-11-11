@@ -109,7 +109,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       console.log(data.positivos);
       console.log(data.negativos);
       console.log(data);
-      localStorage.setItem("diagnostico", data);
+      localStorage.setItem("diagnostico", data.message);
 
     }
     if (rst === 0) {
