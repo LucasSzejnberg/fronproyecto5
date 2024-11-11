@@ -59,6 +59,7 @@ const handleButton3Click = async (url: string, formData: FormData, token: string
       console.error(`Error en la solicitud POST: ${response.status} ${response.statusText}: ${errorData.message}`);
       return false;
     }
+    
   } catch (error) {
     console.error('Error en la solicitud POST:', error);
     return false;
@@ -70,6 +71,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [fecha, setFecha] = useState<string>('');
   const [showFormElectro, setShowFormElectro] = useState(false);
   const [formElectroData, setFormElectroData] = useState<any>(null);
+  const [resultadoIA, setResultadoIA] = useState<string>('');
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -96,9 +98,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       return;
     }
 
-    const a = await uploadFileAndGetResult(selectedFile);
-
+    let a = await uploadFileAndGetResult(selectedFile);
+    
     if (rst === 0) {
+      a = 'Upload successful: "mamografia"';
       console.log("a es igual a ", a);
 
       if (a === 'Upload successful: "electrocardiograma"') {
@@ -106,6 +109,22 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         setShowFormElectro(true);
         rst = 1; 
         return;
+      }
+      if (a === 'Upload successful: "mamografia"') {
+        console.log("oldskdks");
+        const formData1 = new FormData();
+        formData1.append('file', selectedFile);
+        const resultado = await fetch('http://localhost:8000/upload-image/', {
+          method: 'POST',
+          body: formData1
+        })
+        .then(response => response.json())
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        console.log("resultado: ", resultado.names);
+        setResultadoIA("positivo");
+        handleButton3Click("http://localhost:3000/estudio", formData1, token);
       }
     }
 
@@ -115,6 +134,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     formData.append("tipo", a);
     formData.append("quien_subio", "hola");
     formData.append("usuario", "1");
+    formData.append("diagnostico", resultadoIA);
     formData.append("file", selectedFile);
 
     if (formElectroData) {
@@ -128,7 +148,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       return;
     }
 
-    const isSuccessful = await handleButton3Click("https://healthy-back.vercel.app/estudio", formData, token);
+    const isSuccessful = await handleButton3Click("http://localhost:3000/estudio", formData, token);
     console.log('Solicitud exitosa:', isSuccessful);
 
     console.log('Esperando 10 segundos antes de recargar la página...');
