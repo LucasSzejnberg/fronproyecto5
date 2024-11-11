@@ -40,8 +40,7 @@
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  
   border: none;
   background: none;
   color: white;
@@ -61,6 +60,54 @@
   cursor: pointer;
  
   
+}
+.btn-transparent91218 {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+ margin-left: 30%;
+  
+}.holawop {
+width: 15%;
+margin-left: 1%;
+justify-self: left;
+margin-right: auto;
+height: auto;
+padding: auto;
+margin-top: 1%;
+margin-bottom: 1%;
+  
+}
+.justificader{
+  justify-self: left;
+  margin-right: auto;
+  flex-direction: row; /* Establece la dirección horizontal */
+
+}
+.a123321123{
+  width: 40%;
+  height: auto;
+
+
+}
+.bolt{
+  font-size: 60px;
+}
+.jusdermas{
+  margin-top: -7%;
+  width: 30%;
+  justify-self: left;
+  margin-right: auto;
+  margin-left: 3%;
+}
+
+.a1233211231{
+  width: 160px;
+  height: auto;
+
+
 }
 .button-icon61 {
   height: 4.5vw;
