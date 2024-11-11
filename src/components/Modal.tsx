@@ -109,7 +109,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       console.log(data.positivos);
       console.log(data.negativos);
       console.log(data);
-      localStorage.setItem("diagnostico", "positivo");
+      localStorage.setItem("diagnostico", data);
 
     }
     if (rst === 0) {
@@ -122,11 +122,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         return;
       }
     }
-
+    let b = `${a} - ${localStorage.getItem("diagnostico")}`;
     const formData = new FormData();
     const currentDate = new Date(fecha).toISOString().split('T')[0];
     formData.append("date", currentDate);
-    formData.append("tipo", a);
+    formData.append("tipo", b);
     formData.append("quien_subio", "hola");
     formData.append("usuario", "1");
     formData.append("diagnostico", "positivo");
