@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Rectangulo from '../components/Rectangulo';
 import "./GetEstudios.css"
-const URL = "https://healthy-back.vercel.app";
+const URL = "http://localhost:3000";
 
 interface Estudio {
   id_estudios: number;
@@ -25,12 +25,15 @@ const GetEstudios: React.FC<GetEstudiosProps> = ({ searchTerm }) => {
 
   const fetchEstudios = async () => {
     try {
+      console.log("iadhsis");
       const response = await fetch(`${URL}/estudios`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`, // Añadir el token en los headers
         },
+        credentials: 'include', // Importante para manejar cookies
+
       });
 
       if (!response.ok) {
@@ -38,10 +41,12 @@ const GetEstudios: React.FC<GetEstudiosProps> = ({ searchTerm }) => {
       }
 
       const data: Estudio[] = await response.json();
+      console.log(data);
       setEstudios(data);
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
+        console.log(err.message);
       } else {
         setError('Error desconocido');
       }

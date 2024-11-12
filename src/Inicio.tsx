@@ -11,11 +11,13 @@ const Inicio: React.FC = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('https://healthy-back.vercel.app/login', {
+      const response = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include', // Importante para manejar cookies
+
         body: JSON.stringify({ name: email, password: password }),
       });
 
