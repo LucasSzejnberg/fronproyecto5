@@ -7,7 +7,7 @@ const GetNombre: React.FC = () => {
   useEffect(() => {
     const fetchNombre = async () => {
       try {
-        const response = await axios.get('https://healthy-back.vercel.app/nombre', {
+        const response = await axios.get('http://localhost:3000/nombre', {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`, // Incluir el token en los headers si existe

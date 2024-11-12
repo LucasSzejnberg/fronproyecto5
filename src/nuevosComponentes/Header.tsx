@@ -69,6 +69,7 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
             'Authorization': `Bearer ${token}`, // Incluir el token en los headers si existe
           },
         });
+
         const fotoUrl = response.data[response.data.length-1]["foto_foto"]; // Ajusta esto según la estructura de la respuesta
         userImage=fotoUrl;
         // Guardar la respuesta en localStorage
@@ -77,7 +78,39 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
         console.log(userImage);
         
       } catch (error) {
-        console.error('Error fetching foto:', error);
+        if (error instanceof Error) {
+          let errorposta=error.message;
+          if (errorposta.includes("403")) {
+            console.log("El string contiene el número 403");
+
+
+            try {
+              console.log("siguiente");
+              // Aquí no necesitas pasar el token, ya que el navegador enviará las cookies automáticamente
+              const response = await fetch(`http://localhost:3000/token123`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                credentials: 'include', // Esto permite que las cookies se incluyan en la solicitud
+              });
+          
+             
+          
+              const data = await response.json();
+              console.log(data);
+             
+            } catch (err) {
+              console.error('Error al hacer la solicitud:', err);
+            } 
+
+
+
+          }
+          console.error("Error capturado:", error.message);
+        } else {
+          console.error("Error desconocido:", error);
+        }
       }
     };
 
