@@ -14,7 +14,7 @@ const GetHistorial: React.FC<GetHistorialProps> = ({ searchTerm }) => {
     // Función para hacer la solicitud al historial médico
     const fetchHistorialMedico = async () => {
       try {
-        const response = await fetch('http://localhost:3000/historial', {
+        const response = await fetch('https://healthy-back.vercel.app/historial', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
