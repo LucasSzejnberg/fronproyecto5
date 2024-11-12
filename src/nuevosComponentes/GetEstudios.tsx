@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Rectangulo from '../components/Rectangulo';
 import "./GetEstudios.css"
-const URL = "http://localhost:3000";
+const URL = "https://healthy-back.vercel.app";
 
 interface Estudio {
   id_estudios: number;

@@ -76,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
         console.log("guarda foto");
         setFotito(fotoUrl); // Actualizar el estado
         console.log(userImage);
-        
+       
       } catch (error) {
         if (error instanceof Error) {
           let errorposta=error.message;
@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
             try {
               console.log("siguiente");
               // Aquí no necesitas pasar el token, ya que el navegador enviará las cookies automáticamente
-              const response = await fetch(`http://localhost:3000/token123`, {
+              const response = await fetch(`https://healthy-back.vercel.app/refreshToken`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
@@ -99,6 +99,7 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
           
               const data = await response.json();
               console.log(data);
+              localStorage.setItem('loginToken', data);
              
             } catch (err) {
               console.error('Error al hacer la solicitud:', err);
