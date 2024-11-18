@@ -150,7 +150,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     setTimeout(() => {
       console.log('Recargando página...');
       window.location.reload();
-    }, 15000);
+    }, 10000);
   };
 
   const handleFormElectroSubmit = (data: any) => {

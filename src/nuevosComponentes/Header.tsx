@@ -100,9 +100,12 @@ const Header: React.FC<HeaderProps> = ({ logo, userImage }) => {
               const data = await response.json();
               console.log(data);
               localStorage.setItem('loginToken', data);
-             
+              window.location.reload();
+
             } catch (err) {
               console.error('Error al hacer la solicitud:', err);
+              navigate('/iniciar');
+
             } 
 
 
