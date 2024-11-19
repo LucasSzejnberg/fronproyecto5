@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Modal6.css';
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
+const navigate = useNavigate(); // Hook para navegar
 
 interface Modal6Props {
   onClose: () => void;
@@ -33,6 +35,46 @@ const Modal6: React.FC<Modal6Props> = ({ onClose }) => {
 
       onClose(); // Cerrar el modal después de enviar los datos
     } catch (error) {
+      
+      if (error instanceof Error) {
+        let errorposta=error.message;
+        if (errorposta.includes("403")) {
+          console.log("El string contiene el número 403");
+  
+  
+          try {
+            console.log("siguiente");
+            // Aquí no necesitas pasar el token, ya que el navegador enviará las cookies automáticamente
+            const response = await fetch(`https://healthy-back.vercel.app/refreshToken`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              credentials: 'include', // Esto permite que las cookies se incluyan en la solicitud
+            });
+        
+           
+        
+            const data = await response.json();
+            console.log(data);
+            localStorage.setItem('loginToken', data);
+            //window.location.reload();
+            await handleSubmit;
+  
+          } catch (err) {
+            console.error('Error al hacer la solicitud:', err);
+            navigate('/iniciar');
+  
+          } 
+  
+  
+  
+        }
+        console.error("Error capturado:", error.message);
+      } else {
+        console.error("Error desconocido:", error);
+      }
+
       console.error('Error al enviar los datos:', error);
     }
   };
