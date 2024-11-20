@@ -61,6 +61,45 @@ const handleButton3Click = async (url: string, formData: FormData, token: string
     }
   } catch (error) {
     console.error('Error en la solicitud POST:', error);
+    
+    if (error instanceof Error) {
+      let errorposta=error.message;
+      if (errorposta.includes("403")) {
+        console.log("El string contiene el número 403");
+
+
+        try {
+          console.log("siguiente");
+          // Aquí no necesitas pasar el token, ya que el navegador enviará las cookies automáticamente
+          const response = await fetch(`https://healthy-back.vercel.app/refreshToken`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include', // Esto permite que las cookies se incluyan en la solicitud
+          });
+      
+         
+      
+          const data = await response.json();
+          console.log(data);
+          localStorage.setItem('loginToken', data);
+          //window.location.reload();
+          await handleButton3Click("https://healthy-back.vercel.app/estudio", formData, token);
+
+        } catch (err) {
+          console.error('Error al hacer la solicitud:', err);
+          navigate('/iniciar');
+
+        } 
+
+
+
+      }
+      console.error("Error capturado:", error.message);
+    } else {
+      console.error("Error desconocido:", error);
+    }
     return false;
   }
 };
