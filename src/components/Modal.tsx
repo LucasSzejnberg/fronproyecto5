@@ -97,8 +97,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     }
 
     let a = await uploadFileAndGetResult(selectedFile);
-    a = 'Upload successful: mamografia';
-    if (a === 'Upload successful: mamografia'){
+    a = 'Biopsia mamaria';
+    if (a === 'Biopsia mamaria'){
       const formData1 = new FormData();
       formData1.append('file', selectedFile);
       const response = await fetch('http://localhost:8000/upload-image/', {
