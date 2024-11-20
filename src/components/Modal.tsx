@@ -97,7 +97,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     }
 
     let a = await uploadFileAndGetResult(selectedFile);
-    
+    a = 'Upload successful: mamografia';
     if (a === 'Upload successful: mamografia'){
       const formData1 = new FormData();
       formData1.append('file', selectedFile);
