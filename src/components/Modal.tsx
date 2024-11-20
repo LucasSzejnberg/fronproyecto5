@@ -9,7 +9,6 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-const navigate = useNavigate(); // Hook para navegar
 
 async function uploadFileAndGetResult(file: File): Promise<string> {
   if (!file) {
@@ -20,6 +19,7 @@ async function uploadFileAndGetResult(file: File): Promise<string> {
   formData.append('file', file);
 
   try {
+    
     const response = await fetch('https://hjuyhjiuhjdsadasda-healthy.hf.space/upload-image/', {
       method: 'POST',
       body: formData,
@@ -41,6 +41,8 @@ async function uploadFileAndGetResult(file: File): Promise<string> {
 }
 
 const handleButton3Click = async (url: string, formData: FormData, token: string) => {
+  const navigate = useNavigate();
+
   try {
     console.log("Botón 3 fue clickeado");
     const response = await fetch(url, {

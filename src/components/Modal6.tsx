@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Modal6.css';
 import { useNavigate } from 'react-router-dom'; // Importar useNavigate
-const navigate = useNavigate(); // Hook para navegar
+//const navigate = useNavigate(); // Hook para navegar
 
 interface Modal6Props {
   onClose: () => void;
@@ -15,6 +15,8 @@ const Modal6: React.FC<Modal6Props> = ({ onClose }) => {
   const token = localStorage.getItem('loginToken'); // Obtén el token del localStorage
 
   const handleSubmit = async (e: React.FormEvent) => {
+    const navigate = useNavigate();
+
     e.preventDefault();
     try {
       const response = await axios.post(

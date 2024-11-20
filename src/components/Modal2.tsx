@@ -7,7 +7,7 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-const navigate = useNavigate(); // Hook para navegar
+//const navigate = useNavigate(); // Hook para navegar
 
 const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [nombre, setNombre] = useState('');
@@ -24,6 +24,8 @@ const Modal2: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   };
 
   const handleSubmit = async () => {
+    const navigate = useNavigate();
+
     const data = {
       punto: mensaje,
       date: fecha,
